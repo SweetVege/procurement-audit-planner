@@ -127,6 +127,9 @@ async def _verify(run: Run, stage: str, label: str, *script: str, expect: str = 
     """Re-run one of the project's verifiers; return '' on a pass, else why not."""
     code, out = await run.python(*script)
     last = out.splitlines()[-1] if out else "(no output)"
+    # Only a summary line goes to the public log; a per-item line can name a supplier.
+    if " | " in last:
+        last = f"exit code {code}"
     ok = code == 0 and (expect in out if expect else True)
     run.emit(stage, "harness", "check", f"{label}: {'PASS' if ok else 'FAIL'} — {last}")
     return "" if ok else f"{label} failed: {last}"

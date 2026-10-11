@@ -341,26 +341,31 @@ The repository's `Dockerfile` is the whole deployment. On any container host:
 
 ### What has been tested
 
-**On the deployed application**, 2026-10-11, a run started at the register
-stage and taken through both human gates to sign-off (about 17 minutes of
-agent time, $6.46):
+**On the deployed application**, 2026-10-11, one run from the PDF to sign-off
+with nothing copied from the reference run: 24 minutes of agent time, $9.25.
 
-| Stage | Result |
-| --- | --- |
-| Draft the risk register (risk-assessor) | 10 risks rated; 4 minutes, $1.09 |
-| Gate 1 (decision form → `auditor-comments.md` → risk-assessor revision) | 8 approved, 1 override (R-10 likelihood 2 → 3), 1 rejected (R-08). Register rebuilt as Revision 1; harness gate check: `GATE CLOSED`, 9 risks in scope |
-| Agent team (planner ⇄ challenger ⇄ qa-reviewer over the message bus) | 12 minutes, $5.17. Three pack versions, 10 challenges over two rounds, `QA DONE v3: READY FOR SIGN-OFF` |
-| Harness's own re-run of `run_checks.py` after the team | `ALL 4 CHECKS PASS` |
-| Gate 2 (sign-off form → `review.md`) | Pack approved; run complete |
+| Stage | Result | Time | Cost |
+| --- | --- | --- | --- |
+| Extract the rules (`/extract-rules`) | 99 rules, 44 clauses excluded; harness re-run of the quote verifier: `PASS: 0 errors, 0 warnings` | 5 min | $1.28 |
+| Analyse the evidence (spend-analyst ∥ findings-analyst) | Harness re-run of the spend self-check and the history verifier: both `PASS` | 5 min | $2.37 |
+| Draft the risk register (risk-assessor) | 11 risks rated | 3 min | $0.96 |
+| Gate 1 (decision form → `auditor-comments.md` → revision) | 9 approved, 1 override (R-09 likelihood 2 → 3), 1 rejected (R-10). Register rebuilt as Revision 1; harness gate check: `GATE CLOSED`, 10 risks in scope | 1 min | $0.21 |
+| Agent team (planner ⇄ challenger ⇄ qa-reviewer) | Four pack versions; `QA DONE v4: READY FOR SIGN-OFF`; harness re-run of `run_checks.py`: `ALL 4 CHECKS PASS` | 10 min | $4.43 |
+| Gate 2 (sign-off form → `review.md`) | Pack approved; run complete | – | – |
+
+An earlier deployed run, started at the register stage, also completed through
+both gates ($6.46). The counts differ from the Part A run (72 rules there, 99
+here) because each run's agents classify the clauses afresh; every run is held
+to the same verifiers.
+
+One caveat on "nothing copied": the spend-analyst's scripts (`scripts/clean.py`,
+`scripts/analyse.py`) are part of the project, so a run starts with them in
+place and the agent runs and checks them rather than writing them from nothing.
 
 Also checked: a round trip through the decision form leaves
 `auditor-comments.md` byte-identical; an undecided risk, an unknown decision, or
 a non-approve decision without a comment is refused; a running stage stops
 cleanly; a rate-limited turn is resumed; runs survive a redeploy on the volume.
-
-Not yet exercised through the harness: the first two stages (extracting the
-rules and the two evidence sub-agents). They use the same session runner as the
-stages above; a run that starts at "From the PDF" would cover them.
 
 ### Limits, stated plainly
 
