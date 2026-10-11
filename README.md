@@ -261,7 +261,7 @@ order:
 
 ## Part B: the independent harness
 
-**Deployed application:** _URL to be added after deployment_
+**Deployed application:** <https://procurement-audit-planner-production.up.railway.app> (deployed on Railway from this repository's `Dockerfile`)
 
 In Part A, Claude Code is the harness: its chat session launches the
 sub-agents, relays the auditor's decisions and leads the agent team. Part B
