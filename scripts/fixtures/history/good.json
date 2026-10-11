@@ -1,0 +1,240 @@
+{
+  "generated_from": [
+    {
+      "file": "mini-committee.pdf",
+      "pages": 2,
+      "describes": "fixture: completed-work appendix and a scoring page"
+    }
+  ],
+  "audits": [
+    {
+      "id": "AUD-01",
+      "kind": "audit",
+      "area": "Contract Letting",
+      "directorate": null,
+      "service": "Finance and Procurement",
+      "opinion": "Reasonable Assurance",
+      "follow_up_opinion": null,
+      "period": "fixture",
+      "sources": [
+        {
+          "file": "mini-committee.pdf",
+          "pdf_page": 1,
+          "quote": "Contract Letting Reasonable Assurance"
+        }
+      ]
+    },
+    {
+      "id": "AUD-02",
+      "kind": "audit",
+      "area": "Housing Benefit and Council Tax Hardship Fund",
+      "directorate": null,
+      "service": "Finance and Procurement",
+      "opinion": "Limited Assurance",
+      "follow_up_opinion": null,
+      "period": "fixture",
+      "sources": [
+        {
+          "file": "mini-committee.pdf",
+          "pdf_page": 1,
+          "quote": "Housing Benefit and Council Tax Limited Assurance Procurement Hardship Fund"
+        }
+      ]
+    },
+    {
+      "id": "AUD-03",
+      "kind": "follow_up",
+      "area": "Westwood Farm",
+      "directorate": "Schools",
+      "service": null,
+      "opinion": "Limited Assurance",
+      "follow_up_opinion": "Satisfactory",
+      "period": "fixture",
+      "sources": [
+        {
+          "file": "mini-committee.pdf",
+          "pdf_page": 1,
+          "quote": "Schools Westwood Farm Limited Assurance Satisfactory"
+        }
+      ]
+    }
+  ],
+  "opinion_basis": [
+    {
+      "id": "OPB-01",
+      "statement": "Opinion derives from the number of recommendations.",
+      "sources": [
+        {
+          "file": "mini-committee.pdf",
+          "pdf_page": 1,
+          "quote": "The overall opinion is derived from the number of recommendations."
+        }
+      ]
+    }
+  ],
+  "agreed_actions": [],
+  "risk_themes": [],
+  "scoring_method": {
+    "usable": true,
+    "reason_if_not_usable": null,
+    "rating_stages": [],
+    "likelihood_scale": [
+      {
+        "id": "LIK-01",
+        "score": 5,
+        "label": "Certain",
+        "definition": "Risk will occur within a 12 month period",
+        "probability": "100%",
+        "sources": [
+          {
+            "file": "mini-committee.pdf",
+            "pdf_page": 2,
+            "quote": "5 Certain Risk will occur within a 12 month period 100%"
+          }
+        ]
+      },
+      {
+        "id": "LIK-02",
+        "score": 1,
+        "label": "Rare",
+        "definition": "Risk is very rare within a 12 month period",
+        "probability": "<2%",
+        "sources": [
+          {
+            "file": "mini-committee.pdf",
+            "pdf_page": 2,
+            "quote": "1 Rare Risk is very rare within a 12 month period <2%"
+          }
+        ]
+      }
+    ],
+    "impact_scale": [
+      {
+        "id": "IMP-01",
+        "score": 5,
+        "label": "Critical",
+        "criteria": {
+          "Financial loss to Council": "above £2m"
+        },
+        "sources": [
+          {
+            "file": "mini-committee.pdf",
+            "pdf_page": 2,
+            "quote": "5 Critical Financial loss to Council above £2m"
+          }
+        ]
+      }
+    ],
+    "matrix": {
+      "likelihood_labels": [
+        "Rare",
+        "Unlikely",
+        "Likely",
+        "Almost Certain",
+        "Certain"
+      ],
+      "rows": [
+        {
+          "impact_score": 5,
+          "impact_label": "Critical",
+          "scores": [
+            5,
+            10,
+            15,
+            20,
+            25
+          ],
+          "bands": [
+            "Moderate",
+            "High",
+            "Extreme",
+            "Extreme",
+            "Extreme"
+          ],
+          "sources": [
+            {
+              "file": "mini-committee.pdf",
+              "pdf_page": 2,
+              "quote": "Critical 5 5 10 15 20 25 Moderate High Extreme Extreme Extreme"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "file": "mini-committee.pdf",
+          "pdf_page": 2,
+          "quote": "Rare Unlikely Likely Almost Certain Certain"
+        }
+      ]
+    },
+    "bands": [
+      {
+        "id": "BND-01",
+        "band": "Extreme",
+        "score_range": "15 -25",
+        "rag": "Red",
+        "escalation": "Add to Corporate Risk Register",
+        "response": null,
+        "sources": [
+          {
+            "file": "mini-committee.pdf",
+            "pdf_page": 2,
+            "quote": "Extreme 15 -25 (Red) Add to Corporate Risk Register"
+          }
+        ]
+      }
+    ],
+    "appetite": [
+      {
+        "id": "APP-01",
+        "category": "Financial",
+        "level": "Flexible",
+        "statement": "financial risk appetite of Flexible",
+        "sources": [
+          {
+            "file": "mini-committee.pdf",
+            "pdf_page": 2,
+            "quote": "The Council aims to operate with a financial risk appetite of Flexible."
+          }
+        ]
+      }
+    ]
+  },
+  "discrepancies": [
+    {
+      "id": "DIS-01",
+      "description": "Band table adds risks to the register at 15-25; the text says score 9 or above.",
+      "sources": [
+        {
+          "file": "mini-committee.pdf",
+          "pdf_page": 2,
+          "quote": "Extreme 15 -25 (Red) Add to Corporate Risk Register"
+        },
+        {
+          "file": "mini-committee.pdf",
+          "pdf_page": 2,
+          "quote": "Where risk levels are extreme the risk is escalated at score 9 or above."
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "topic": "risk_register",
+      "expected": "Corporate/Strategic Risk Register entries",
+      "searched": [
+        "mini-committee.pdf"
+      ],
+      "note": "Exempt report; not in the papers."
+    },
+    {
+      "topic": "agreed_actions",
+      "expected": "Agreed actions with due dates and status",
+      "searched": [
+        "mini-committee.pdf"
+      ],
+      "note": "The appendix lists opinions only."
+    }
+  ]
+}

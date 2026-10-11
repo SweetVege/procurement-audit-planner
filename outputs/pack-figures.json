@@ -1,0 +1,616 @@
+{
+  "register": "Revision 2",
+  "method": {
+    "size_by_score": [
+      {
+        "score_at_least": 15,
+        "items": 25
+      },
+      {
+        "score_at_least": 8,
+        "items": 15
+      },
+      {
+        "score_at_least": 4,
+        "items": 10
+      },
+      {
+        "score_at_least": 1,
+        "items": 5
+      }
+    ],
+    "census_limit": 50
+  },
+  "pack": {
+    "risks_in_register": 11,
+    "risks_in_scope": 10,
+    "risks_rejected": 1,
+    "controls": 33,
+    "tests": 32,
+    "tests_with_sample": 14,
+    "sample_items": 192,
+    "sample_transactions": 956,
+    "sample_gbp": 43008436.08,
+    "pbc_items": 14,
+    "rules_total": 72,
+    "rules_cited": 50,
+    "rules_not_tested": 22
+  },
+  "scope": {
+    "in_scope": [
+      "R-01",
+      "R-02",
+      "R-03",
+      "R-05",
+      "R-06",
+      "R-04",
+      "R-07",
+      "R-08",
+      "R-09",
+      "R-11"
+    ],
+    "rejected": [
+      "R-10"
+    ],
+    "ratings": {
+      "R-01": {
+        "likelihood": 3,
+        "impact": 3,
+        "score": 9,
+        "matrix_label": "High",
+        "band": "Medium - High"
+      },
+      "R-02": {
+        "likelihood": 3,
+        "impact": 3,
+        "score": 9,
+        "matrix_label": "High",
+        "band": "Medium - High"
+      },
+      "R-03": {
+        "likelihood": 3,
+        "impact": 3,
+        "score": 9,
+        "matrix_label": "High",
+        "band": "Medium - High"
+      },
+      "R-05": {
+        "likelihood": 3,
+        "impact": 3,
+        "score": 9,
+        "matrix_label": "High",
+        "band": "Medium - High"
+      },
+      "R-06": {
+        "likelihood": 2,
+        "impact": 4,
+        "score": 8,
+        "matrix_label": "High",
+        "band": "Medium - High"
+      },
+      "R-04": {
+        "likelihood": 3,
+        "impact": 2,
+        "score": 6,
+        "matrix_label": "Moderate",
+        "band": "Moderate"
+      },
+      "R-07": {
+        "likelihood": 2,
+        "impact": 3,
+        "score": 6,
+        "matrix_label": "Moderate",
+        "band": "Moderate"
+      },
+      "R-08": {
+        "likelihood": 2,
+        "impact": 3,
+        "score": 6,
+        "matrix_label": "Moderate",
+        "band": "Moderate"
+      },
+      "R-09": {
+        "likelihood": 3,
+        "impact": 2,
+        "score": 6,
+        "matrix_label": "Moderate",
+        "band": "Moderate"
+      },
+      "R-11": {
+        "likelihood": 2,
+        "impact": 2,
+        "score": 4,
+        "matrix_label": "Moderate",
+        "band": "Moderate"
+      }
+    }
+  },
+  "samples": {
+    "T-01.1": {
+      "file": "split-purchases.csv",
+      "population": 2,
+      "items": 2,
+      "transactions": 58,
+      "gbp": 3509528.75,
+      "csv": "samples/T-01.1.csv"
+    },
+    "T-01.2": {
+      "file": "split-purchases.csv",
+      "population": 41,
+      "items": 41,
+      "transactions": 461,
+      "gbp": 2310961.19,
+      "csv": "samples/T-01.2.csv"
+    },
+    "T-01.4": {
+      "file": "threshold-clustering.csv",
+      "population": 86,
+      "items": 15,
+      "transactions": 15,
+      "gbp": 14995.75,
+      "csv": "samples/T-01.4.csv"
+    },
+    "T-02.1": {
+      "file": "high-value-suppliers.csv",
+      "population": 6,
+      "items": 6,
+      "transactions": 18,
+      "gbp": 239360.31,
+      "csv": "samples/T-02.1.csv"
+    },
+    "T-02.2": {
+      "file": "high-value-suppliers.csv",
+      "population": 167,
+      "items": 15,
+      "transactions": 36,
+      "gbp": 1143039.44,
+      "csv": "samples/T-02.2.csv"
+    },
+    "T-02.4": {
+      "file": "high-value-suppliers.csv",
+      "population": 13,
+      "items": 13,
+      "transactions": 35,
+      "gbp": 13855626.42,
+      "csv": "samples/T-02.4.csv"
+    },
+    "T-03.1": {
+      "file": "expired-notice-spend.csv",
+      "population": 5,
+      "items": 5,
+      "transactions": 22,
+      "gbp": 210960.48,
+      "csv": "samples/T-03.1.csv"
+    },
+    "T-05.1": {
+      "file": "duplicate-groups.csv",
+      "population": 35,
+      "items": 35,
+      "transactions": 86,
+      "gbp": 566187.75,
+      "csv": "samples/T-05.1.csv"
+    },
+    "T-05.2": {
+      "file": "duplicate-groups.csv",
+      "population": 28,
+      "items": 15,
+      "transactions": 35,
+      "gbp": 70423.86,
+      "csv": "samples/T-05.2.csv"
+    },
+    "T-06.2": {
+      "file": "high-value-suppliers.csv",
+      "population": 223,
+      "items": 15,
+      "transactions": 41,
+      "gbp": 14522207.85,
+      "csv": "samples/T-06.2.csv"
+    },
+    "T-04.1": {
+      "file": "spend-vs-award.csv",
+      "population": 8,
+      "items": 8,
+      "transactions": 31,
+      "gbp": 736650.97,
+      "csv": "samples/T-04.1.csv"
+    },
+    "T-08.1": {
+      "file": "high-value-suppliers.csv",
+      "population": 205,
+      "items": 10,
+      "transactions": 30,
+      "gbp": 933595.35,
+      "csv": "samples/T-08.1.csv"
+    },
+    "T-08.4": {
+      "file": "high-value-suppliers.csv",
+      "population": 104,
+      "items": 10,
+      "transactions": 30,
+      "gbp": 1385369.21,
+      "csv": "samples/T-08.4.csv"
+    },
+    "T-09.1": {
+      "file": "split-purchases.csv",
+      "population": 2,
+      "items": 2,
+      "transactions": 58,
+      "gbp": 3509528.75,
+      "csv": "samples/T-09.1.csv"
+    }
+  },
+  "filled": [
+    {
+      "where": "C-01.3 control",
+      "source": "analytics.json $.thresholds[1].value",
+      "value": 25000.0,
+      "shown_as": "£25,000"
+    },
+    {
+      "where": "C-01.4 control",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "C-01.4 control",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "C-01.5 control",
+      "source": "analytics.json $.thresholds[0].value",
+      "value": 1000.0,
+      "shown_as": "£1,000"
+    },
+    {
+      "where": "C-01.5 control",
+      "source": "analytics.json $.thresholds[1].value",
+      "value": 25000.0,
+      "shown_as": "£25,000"
+    },
+    {
+      "where": "C-01.5 control",
+      "source": "analytics.json $.thresholds[0].value",
+      "value": 1000.0,
+      "shown_as": "£1,000"
+    },
+    {
+      "where": "T-01.1 step",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "T-01.2 step",
+      "source": "analytics.json $.thresholds[1].value",
+      "value": 25000.0,
+      "shown_as": "£25,000"
+    },
+    {
+      "where": "T-01.2 step",
+      "source": "analytics.json $.tests.split_purchases.parameters.window_days",
+      "value": 30,
+      "shown_as": "30"
+    },
+    {
+      "where": "T-01.4 step",
+      "source": "analytics.json $.thresholds[0].value",
+      "value": 1000.0,
+      "shown_as": "£1,000"
+    },
+    {
+      "where": "T-01.4 step",
+      "source": "analytics.json $.thresholds[0].value",
+      "value": 1000.0,
+      "shown_as": "£1,000"
+    },
+    {
+      "where": "C-02.1 control",
+      "source": "analytics.json $.thresholds[1].value",
+      "value": 25000.0,
+      "shown_as": "£25,000"
+    },
+    {
+      "where": "C-02.2 control",
+      "source": "analytics.json $.thresholds[1].value",
+      "value": 25000.0,
+      "shown_as": "£25,000"
+    },
+    {
+      "where": "T-02.2 step",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "T-02.2 step",
+      "source": "analytics.json $.population.months_covered",
+      "value": 3,
+      "shown_as": "3"
+    },
+    {
+      "where": "T-02.4 step",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "T-02.4 step",
+      "source": "analytics.json $.population.months_covered",
+      "value": 3,
+      "shown_as": "3"
+    },
+    {
+      "where": "C-03.2 control",
+      "source": "analytics.json $.thresholds[1].value",
+      "value": 25000.0,
+      "shown_as": "£25,000"
+    },
+    {
+      "where": "T-03.1 step",
+      "source": "analytics.json $.tests.expired_notice_spend.parameters.window_start",
+      "value": "2026-05-01",
+      "shown_as": "2026-05-01"
+    },
+    {
+      "where": "T-05.1 step",
+      "source": "analytics.json $.tests.duplicates.parameters.days",
+      "value": 7,
+      "shown_as": "7"
+    },
+    {
+      "where": "T-04.1 step",
+      "source": "analytics.json $.tests.spend_vs_award.parameters.ratio_minimum",
+      "value": 1.25,
+      "shown_as": "1.25"
+    },
+    {
+      "where": "C-07.2 control",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "C-07.2 control",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "T-07.1 step",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "C-09.2 control",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "C-09.3 control",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "C-09.3 control",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "C-09.4 control",
+      "source": "analytics.json $.thresholds[3].value",
+      "value": 2500000.0,
+      "shown_as": "£2,500,000"
+    },
+    {
+      "where": "T-09.1 step",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "T-09.1 step",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "T-09.1 step",
+      "source": "analytics.json $.thresholds[3].value",
+      "value": 2500000.0,
+      "shown_as": "£2,500,000"
+    },
+    {
+      "where": "T-09.2 step",
+      "source": "analytics.json $.thresholds[3].value",
+      "value": 2500000.0,
+      "shown_as": "£2,500,000"
+    },
+    {
+      "where": "T-09.2 step",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "T-09.3 step",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "T-09.3 step",
+      "source": "analytics.json $.thresholds[3].value",
+      "value": 2500000.0,
+      "shown_as": "£2,500,000"
+    },
+    {
+      "where": "C-11.1 control",
+      "source": "analytics.json $.threshold_source.publication_floor.value",
+      "value": 500.0,
+      "shown_as": "£500"
+    },
+    {
+      "where": "memo objective",
+      "source": "computed: pack.risks_in_scope",
+      "value": 10,
+      "shown_as": "10"
+    },
+    {
+      "where": "memo objective",
+      "source": "computed: pack.risks_in_register",
+      "value": 11,
+      "shown_as": "11"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.population.date_min",
+      "value": "2026-05-01",
+      "shown_as": "2026-05-01"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.population.date_max",
+      "value": "2026-07-31",
+      "shown_as": "2026-07-31"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.population.months_covered",
+      "value": 3,
+      "shown_as": "3"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.population.rows_after_exclusions",
+      "value": 8534,
+      "shown_as": "8,534"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.population.suppliers",
+      "value": 1083,
+      "shown_as": "1,083"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.population.total_gbp",
+      "value": 66778104.78,
+      "shown_as": "£66,778,104.78"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.population.rows_raw",
+      "value": 10607,
+      "shown_as": "10,607"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.population.excluded.redacted_supplier.rows",
+      "value": 2015,
+      "shown_as": "2,015"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.population.excluded.pension_statutory.rows",
+      "value": 12,
+      "shown_as": "12"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.population.excluded.inter_authority.rows",
+      "value": 46,
+      "shown_as": "46"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.contracts.rows_for_council",
+      "value": 141,
+      "shown_as": "141"
+    },
+    {
+      "where": "memo approach",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "memo approach",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "memo approach",
+      "source": "analytics.json $.tests.split_purchases.per_threshold['500000.00'].by_tag.agency_staff.gbp",
+      "value": 546495.3,
+      "shown_as": "£546,495.30"
+    },
+    {
+      "where": "memo approach",
+      "source": "analytics.json $.tests.off_contract.unmatched_by_tag.agency_staff.gbp",
+      "value": 1275552.15,
+      "shown_as": "£1,275,552.15"
+    },
+    {
+      "where": "memo limitations",
+      "source": "analytics.json $.threshold_source.publication_floor.value",
+      "value": 500.0,
+      "shown_as": "£500"
+    },
+    {
+      "where": "memo limitations",
+      "source": "analytics.json $.population.months_covered",
+      "value": 3,
+      "shown_as": "3"
+    },
+    {
+      "where": "P-01 request",
+      "source": "analytics.json $.population.date_min",
+      "value": "2026-05-01",
+      "shown_as": "2026-05-01"
+    },
+    {
+      "where": "P-01 request",
+      "source": "analytics.json $.population.date_max",
+      "value": "2026-07-31",
+      "shown_as": "2026-07-31"
+    },
+    {
+      "where": "P-06 request",
+      "source": "analytics.json $.population.date_min",
+      "value": "2026-05-01",
+      "shown_as": "2026-05-01"
+    },
+    {
+      "where": "P-06 request",
+      "source": "analytics.json $.population.date_max",
+      "value": "2026-07-31",
+      "shown_as": "2026-07-31"
+    },
+    {
+      "where": "P-12 request",
+      "source": "analytics.json $.population.date_max",
+      "value": "2026-07-31",
+      "shown_as": "2026-07-31"
+    },
+    {
+      "where": "P-14 request",
+      "source": "analytics.json $.thresholds[2].value",
+      "value": 500000.0,
+      "shown_as": "£500,000"
+    },
+    {
+      "where": "P-14 request",
+      "source": "analytics.json $.thresholds[3].value",
+      "value": 2500000.0,
+      "shown_as": "£2,500,000"
+    }
+  ]
+}

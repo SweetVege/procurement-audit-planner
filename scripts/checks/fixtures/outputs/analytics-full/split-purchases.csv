@@ -1,0 +1,4 @@
+threshold,supplier,supplier_norm,window_start,window_end,n_payments,distinct_amounts,total_gbp,largest_payment,tag,tags_in_window,services,row_ids
+25000.0,Alpha Works,ALPHA WORKS,2026-05-04,2026-05-20,3,3,36500.0,14000.0,general_procurement,general_procurement,Environment,P02.xlsx:3;P02.xlsx:4;P02.xlsx:5
+25000.0,Bravo Build,BRAVO BUILD,2026-05-05,2026-05-19,2,2,28000.0,20000.0,general_procurement,general_procurement,Environment,P02.xlsx:6;P02.xlsx:7
+25000.0,Charlie Civils,CHARLIE CIVILS,2026-05-06,2026-05-07,2,2,25100.0,12600.0,care_or_education_placement,care_or_education_placement,Environment,P02.xlsx:8;P02.xlsx:9

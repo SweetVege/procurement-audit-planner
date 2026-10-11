@@ -1,0 +1,21 @@
+{
+  "source": {
+    "file": "fixture",
+    "pages": 1
+  },
+  "parameters": {},
+  "excluded": [],
+  "notes": [],
+  "rules": [
+    {
+      "rule_id": "CPR-01",
+      "clause": "6.16",
+      "type": "anti-avoidance"
+    },
+    {
+      "rule_id": "CPR-02",
+      "clause": "App B row B1",
+      "type": "procedure"
+    }
+  ]
+}

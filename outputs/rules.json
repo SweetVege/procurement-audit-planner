@@ -1,0 +1,2146 @@
+{
+  "source": {
+    "file": "data/contract-rules.pdf",
+    "pages": 15
+  },
+  "parameters": {
+    "RELEVANT_THRESHOLD": {
+      "value": null,
+      "defined_in": "1.4",
+      "page": 1,
+      "description": "“the Threshold” / “the relevant Threshold” where a clause does not limit it to one contract category: whichever of the three category thresholds applies to the contract. Not printed in the PDF; published on the Procurement intranet page.",
+      "verbatim_quote": "“Threshold” refers to the relevant financial thresholds relating to Goods & Services, Works, Concession contracts and Light Touch contracts as set out in the applicable Procurement Legislation and published on the Procurement Intranet page, as amended from time to time."
+    },
+    "THRESHOLD_GOODS_SERVICES": {
+      "value": null,
+      "defined_in": "App B note ***",
+      "page": 13,
+      "description": "Procurement-legislation threshold for Goods and Services. Figure not printed in the PDF: “The latest values are published on the Procurement intranet page”.",
+      "verbatim_quote": "***There are three different procurement regulation thresholds for: 1. Works and concession contracts; 2. Goods and Services; and 3. Light Touch Contracts."
+    },
+    "THRESHOLD_WORKS_CONCESSION": {
+      "value": null,
+      "defined_in": "App B note ***",
+      "page": 13,
+      "description": "Procurement-legislation threshold for Works and concession contracts. Figure not printed in the PDF: “The latest values are published on the Procurement intranet page”.",
+      "verbatim_quote": "***There are three different procurement regulation thresholds for: 1. Works and concession contracts; 2. Goods and Services; and 3. Light Touch Contracts."
+    },
+    "THRESHOLD_LIGHT_TOUCH": {
+      "value": null,
+      "defined_in": "App B note ***",
+      "page": 13,
+      "description": "Procurement-legislation threshold for Light Touch Contracts. Figure not printed in the PDF: “The latest values are published on the Procurement intranet page”.",
+      "verbatim_quote": "***There are three different procurement regulation thresholds for: 1. Works and concession contracts; 2. Goods and Services; and 3. Light Touch Contracts."
+    }
+  },
+  "rules": [
+    {
+      "rule_id": "CPR-01",
+      "clause": "3.5",
+      "page": 2,
+      "type": "procedure",
+      "scope": [
+        "services"
+      ],
+      "condition": "service contract with estimated value above the Goods & Services Threshold",
+      "threshold_low": null,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": "THRESHOLD_GOODS_SERVICES",
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "exceeds the Threshold for Goods & Services",
+      "required_action": "consider how the procurement or contract might improve the economic, social and environmental wellbeing of West Berkshire",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "When proposing to procure or make arrangements for procuring a service contract where the estimated value exceeds the Threshold for Goods & Services, consideration must be given as to how the procurement or contract might improve the economic, social and environmental wellbeing of West Berkshire, as required by the Public Services (Social Value) Act 2012, and the Council’s Social Value Policy."
+    },
+    {
+      "rule_id": "CPR-02",
+      "clause": "4.1",
+      "page": 2,
+      "type": "approval",
+      "scope": [
+        "all"
+      ],
+      "condition": "every contract",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "contract must be in accordance with a decision of the Council, the Executive, or within the Scheme of Delegation",
+      "approver": "the Council; the Executive; or an Executive Decision Maker, Council Committee or Sub-Committee, or officer or their delegate within the Scheme of Delegation",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "All contracts must be in accordance with a decision: 4.1.1 of the Council; or 4.1.2 of the Executive; or 4.1.3 within the Council’s Scheme of Delegation by:"
+    },
+    {
+      "rule_id": "CPR-03",
+      "clause": "4.2",
+      "page": 3,
+      "type": "approval",
+      "scope": [
+        "all"
+      ],
+      "condition": "every contract",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "enter into a contract only where it is in accordance with an existing budgetary provision within the approved Budget",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "No contract shall be entered into unless it is in accordance with an existing budgetary provision within the Budget approved by the Council."
+    },
+    {
+      "rule_id": "CPR-04",
+      "clause": "4.3",
+      "page": 3,
+      "type": "approval",
+      "scope": [
+        "all"
+      ],
+      "condition": "contract award with a value over £500,000",
+      "threshold_low": 500000,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "over £500,000",
+      "required_action": "treat the award as a Key Decision of the Council",
+      "approver": null,
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "Any contract award with a value over £500,000 is a Key Decision of the Council."
+    },
+    {
+      "rule_id": "CPR-05",
+      "clause": "4.4",
+      "page": 3,
+      "type": "approval",
+      "scope": [
+        "all"
+      ],
+      "condition": "Service Director does not have delegated authority to enter into the contract",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "obtain approval in accordance with Appendix A before the contract is awarded",
+      "approver": "as set out in Appendix A",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Where a Service Director does not have delegated authority to enter into a contract, approval in accordance with Appendix A is required before the contract can be awarded."
+    },
+    {
+      "rule_id": "CPR-06",
+      "clause": "5.1.1",
+      "page": 3,
+      "type": "record",
+      "scope": [
+        "all"
+      ],
+      "condition": "expenditure exceeding £500",
+      "threshold_low": 500,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "exceeding £500",
+      "required_action": "publish the expenditure, including payments to suppliers and contractors",
+      "approver": null,
+      "evidence_source": [
+        "spend_data"
+      ],
+      "verbatim_quote": "Expenditure exceeding £500, including payments to suppliers and contractors."
+    },
+    {
+      "rule_id": "CPR-07",
+      "clause": "5.2",
+      "page": 3,
+      "type": "advertising",
+      "scope": [
+        "goods",
+        "services"
+      ],
+      "condition": "invitation to tender for a goods and/or services contract with a value exceeding £5,000",
+      "threshold_low": 5000,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "exceeds £5,000",
+      "required_action": "publish details of every such invitation to tender",
+      "approver": null,
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "Details of every invitation to tender for contracts to provide goods and/or services with a value that exceeds £5,000."
+    },
+    {
+      "rule_id": "CPR-08",
+      "clause": "5.2.1",
+      "page": 3,
+      "type": "record",
+      "scope": [
+        "all"
+      ],
+      "condition": "contracts in progress and contracts awarded",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "publish a register of contracts with key information such as contract value, duration and supplier",
+      "approver": null,
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "A register of contracts, including those in progress and those awarded, with key information such as the contract value, duration and supplier."
+    },
+    {
+      "rule_id": "CPR-09",
+      "clause": "5.3",
+      "page": 3,
+      "type": "record",
+      "scope": [
+        "all"
+      ],
+      "condition": "all service areas",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "report contract information to the relevant board monthly in the format required by Procurement Legislation",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Service areas are therefore responsible for reporting contract information to the relevant board on a monthly basis in a format as required by Procurement Legislation."
+    },
+    {
+      "rule_id": "CPR-10",
+      "clause": "6.4",
+      "page": 4,
+      "type": "procedure",
+      "scope": [
+        "all"
+      ],
+      "condition": "every contract award",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "ensure the supplier meets the Council’s minimum standards of suitability, capability, legal status and financial standing",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Officers undertaking procurement are responsible for ensuring that all persons awarded contracts for the supplies, services or works to the Council meet the Council’s minimum standards of suitability, capability, legal status and financial standing."
+    },
+    {
+      "rule_id": "CPR-11",
+      "clause": "6.8",
+      "page": 4,
+      "type": "advertising",
+      "scope": [
+        "all"
+      ],
+      "condition": "contract opportunity being advertised",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "advertise electronically on the Council’s Procurement Portal",
+      "approver": null,
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "All contract opportunities being advertised by the relevant Service Director should be done so electronically on the Council’s Procurement Portal to ensure that such opportunities also appear on the Central Digital Platform (CDP) database."
+    },
+    {
+      "rule_id": "CPR-12",
+      "clause": "6.10",
+      "page": 4,
+      "type": "advertising",
+      "scope": [
+        "all"
+      ],
+      "condition": "contract opportunity above the relevant Procurement Legislation threshold, other than a Further Competition under a compliant Framework Agreement",
+      "threshold_low": null,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": "RELEVANT_THRESHOLD",
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "above the relevant Procurement Legislation thresholds",
+      "required_action": "advertise on the CDP database before advertising in any other medium",
+      "approver": null,
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "All contract opportunities which are above the relevant Procurement Legislation thresholds must be advertised on the CDP database (a web-based portal provided by the Cabinet Office) prior to such advertisement appearing on any other advertising medium (such as a trade journal etc)."
+    },
+    {
+      "rule_id": "CPR-13",
+      "clause": "6.14",
+      "page": 4,
+      "type": "approval",
+      "scope": [
+        "all"
+      ],
+      "condition": "any CDP notice",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "have the notice approved and issued by the Service Lead for Procurement and Commissioning or their delegate",
+      "approver": "Service Lead for Procurement and Commissioning or their delegate",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "CDP notices must be approved and issued by the Service Lead for Procurement and Commissioning or their delegate as appropriate, who will also assist in the conduct of the procurement."
+    },
+    {
+      "rule_id": "CPR-14",
+      "clause": "6.15",
+      "page": 4,
+      "type": "valuation",
+      "scope": [
+        "all"
+      ],
+      "condition": "estimating Total Contract Value",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "estimate the total value over the full potential duration of the contract, not just the initial term (the clause lists planned extensions, maximum duration and value, options and Value Added Tax)",
+      "approver": null,
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "Total Contract Value is a genuine estimate of the total value over the full potential duration of the contract, not just the initial term."
+    },
+    {
+      "rule_id": "CPR-15",
+      "clause": "6.16",
+      "page": 5,
+      "type": "anti-avoidance",
+      "scope": [
+        "all"
+      ],
+      "condition": "every contract",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "do not artificially split or disaggregate a contract to avoid the Procurement Legislation and/or the Rules",
+      "approver": null,
+      "evidence_source": [
+        "spend_data",
+        "council_records"
+      ],
+      "verbatim_quote": "There shall be no artificial splitting or disaggregation of a contract to avoid the application of the provisions of the Procurement Legislation and/or these Rules."
+    },
+    {
+      "rule_id": "CPR-16",
+      "clause": "6.17",
+      "page": 5,
+      "type": "anti-avoidance",
+      "scope": [
+        "all"
+      ],
+      "condition": "repeat purchases and/or purchases of a similar type in a specified period, each initially below the relevant Threshold",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": "RELEVANT_THRESHOLD",
+      "threshold_text": "initially below the stated relevant Threshold",
+      "required_action": "seek advice on the application of the Procurement Legislation where such purchases are envisaged",
+      "approver": null,
+      "evidence_source": [
+        "spend_data",
+        "council_records"
+      ],
+      "verbatim_quote": "The Procurement Legislation can cover contracts which are initially below the stated relevant Threshold where they constitute repeat purchases and/or purchases of a similar type in a specified period. Officers responsible for such procurement should therefore seek advice on the application of the Procurement Legislation where they envisage that they may be required to make such purchases."
+    },
+    {
+      "rule_id": "CPR-17",
+      "clause": "6.19",
+      "page": 5,
+      "type": "procedure",
+      "scope": [
+        "all"
+      ],
+      "condition": "contract with an estimated value more than the appropriate Threshold",
+      "threshold_low": null,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": "RELEVANT_THRESHOLD",
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "more than the appropriate Threshold",
+      "required_action": "issue an electronic Invitation to Tender; tenders submitted electronically via the Council’s Procurement Portal",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "An electronic Invitation to Tender shall be issued by the Council for all contracts with an estimated value that is more than the appropriate Threshold and tenders shall be submitted electronically by tenderers via the Council’s Procurement Portal."
+    },
+    {
+      "rule_id": "CPR-18",
+      "clause": "6.20",
+      "page": 5,
+      "type": "procedure",
+      "scope": [
+        "all"
+      ],
+      "condition": "any electronic tender",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "specify the submission format in the Portal and the Invitation to Tender; store tenders in a secure portal account locked until the opening date and time",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "The Council Procurement Portal and the Invitation to Tender must specify the format in which an electronic tender is to be submitted by tenderers and such tenders shall be stored in a secure portal account which is locked until the date and time specified for its opening."
+    },
+    {
+      "rule_id": "CPR-19",
+      "clause": "6.21",
+      "page": 5,
+      "type": "procedure",
+      "scope": [
+        "all"
+      ],
+      "condition": "tender received after the time and date specified for opening",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "do not accept or consider it unless the Monitoring Officer is satisfied there are exceptional circumstances and the other tenders have not been opened",
+      "approver": "Monitoring Officer",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "No tender received after the time and date specified for its opening shall be accepted or considered by the Council unless the Monitoring Officer is satisfied that there are exceptional circumstances and the other tenders have not been opened."
+    },
+    {
+      "rule_id": "CPR-20",
+      "clause": "6.22",
+      "page": 5,
+      "type": "procedure",
+      "scope": [
+        "all"
+      ],
+      "condition": "tenders submitted on the Procurement Portal",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "have a Procurement Officer conduct the electronic opening, with an audit record maintained on the e-tendering system",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "The electronic opening of tenders submitted on the Procurement Portal shall be conducted by a Procurement Officer with an audit record being maintained on the e-tendering system."
+    },
+    {
+      "rule_id": "CPR-21",
+      "clause": "6.24",
+      "page": 5,
+      "type": "procedure",
+      "scope": [
+        "all"
+      ],
+      "condition": "all quotes and tenders",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "evaluate in accordance with evaluation criteria notified in advance to those submitting",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "All quotes and tenders shall be evaluated in accordance with evaluation criteria notified in advance to those submitting quotes/tenders."
+    },
+    {
+      "rule_id": "CPR-22",
+      "clause": "6.26",
+      "page": 6,
+      "type": "procedure",
+      "scope": [
+        "all"
+      ],
+      "condition": "every contract award",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "award to the quote or tender that is most advantageous and represents best value for money, not only on lowest price, unless exceptional circumstances are approved in advance",
+      "approver": "relevant Service Director (for exceptional circumstances)",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Save in exceptional circumstances approved in advance by the relevant Service Director all contracts shall be awarded on the basis of the quote or tender which is most advantageous and represents best value for money to the Council having regard to the provisions of the Social Value Policy, and not only on the basis of lowest price."
+    },
+    {
+      "rule_id": "CPR-23",
+      "clause": "7.2",
+      "page": 6,
+      "type": "waiver",
+      "scope": [
+        "all"
+      ],
+      "condition": "exception or waiver of competition for a contract with a value of more than £24,999.99",
+      "threshold_low": 24999.99,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "more than £24,999.99",
+      "required_action": "except or waive only for urgency where delay would be likely to lead to financial loss, personal injury or damage to property (contracts not subject to Procurement Legislation), or at the discretion of the relevant Executive Director and/or the Chief Executive with reasons recorded in writing",
+      "approver": "relevant Executive Director and/or the Chief Executive (7.2.2)",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Subject to 7.4 the requirement for the Council to conduct a competitive purchasing process, contracts with a value of more than £24,999.99, may be excepted or waived in the following circumstance:"
+    },
+    {
+      "rule_id": "CPR-24",
+      "clause": "7.3",
+      "page": 6,
+      "type": "waiver",
+      "scope": [
+        "all"
+      ],
+      "condition": "any waiver or exception to the Rules",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "waiver granted only by the Monitoring Officer and/or the S.151 Officer; sought only in advance and only in exceptional circumstances",
+      "approver": "Monitoring Officer and/or S.151 Officer",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Only the Monitoring Officer and/or the S.151 Officer may grant a waiver or an exception to these Rules, subject to exception values and delegation thresholds detailed in these Rules and/or elsewhere in the Constitution. An officer who seeks a waiver of these Rules shall do so only in advance and only in exceptional circumstances."
+    },
+    {
+      "rule_id": "CPR-25",
+      "clause": "7.4.1",
+      "page": 6,
+      "type": "waiver",
+      "scope": [
+        "all"
+      ],
+      "condition": "exception for a contract up to the Threshold",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": true,
+      "threshold_high_param": "RELEVANT_THRESHOLD",
+      "threshold_text": "up to the Threshold",
+      "required_action": "obtain S.151 Officer approval of the exception",
+      "approver": "S.151 Officer",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "for all contracts up to the Threshold, the S.151 Officer must approve the exception;"
+    },
+    {
+      "rule_id": "CPR-26",
+      "clause": "7.4.2",
+      "page": 6,
+      "type": "waiver",
+      "scope": [
+        "all"
+      ],
+      "condition": "exception for a contract above the relevant Threshold and up to £500,000",
+      "threshold_low": null,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": "RELEVANT_THRESHOLD",
+      "threshold_high": 500000,
+      "threshold_high_inclusive": true,
+      "threshold_high_param": null,
+      "threshold_text": "above the relevant Threshold and up to £500,000",
+      "required_action": "S.151 Officer consults the Monitoring Officer and the appropriate Executive Director; exception report approved by the relevant board (supplied retrospectively where urgency makes prior approval impossible)",
+      "approver": "S.151 Officer, in consultation with the Monitoring Officer and the appropriate Executive Director; relevant board approves the exception report",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "for contracts above the relevant Threshold and up to £500,000, the S.151 Officer will consult with the Monitoring Officer and the appropriate Executive Director provided and an exception report has been approved by the relevant board unless 7.3 applies and for reasons of urgency such prior approval is not possible in which case a report will be supplied retrospectively;"
+    },
+    {
+      "rule_id": "CPR-27",
+      "clause": "7.4.3",
+      "page": 6,
+      "type": "waiver",
+      "scope": [
+        "all"
+      ],
+      "condition": "exception for a contract over £500,000",
+      "threshold_low": 500000,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "over £500,000",
+      "required_action": "S.151 Officer and Monitoring Officer make a recommendation to the Executive; exception report prepared and approved by the relevant board and Corporate Board",
+      "approver": "the Executive, on the recommendation of the S.151 Officer and the Monitoring Officer; relevant board and Corporate Board approve the exception report",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "for contracts over £500,000 the S.151 Officer and the Monitoring Officer will make a recommendation to the Executive provided an exception report has been prepared and approved by the relevant board and Corporate Board."
+    },
+    {
+      "rule_id": "CPR-28",
+      "clause": "7.5.1",
+      "page": 6,
+      "type": "waiver",
+      "scope": [
+        "all"
+      ],
+      "condition": "any exception or waiver",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "fully document the exception or waiver",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "be fully documented;"
+    },
+    {
+      "rule_id": "CPR-29",
+      "clause": "7.5.2",
+      "page": 6,
+      "type": "waiver",
+      "scope": [
+        "all"
+      ],
+      "condition": "exception or waiver for a contract where a competitive process is not excluded by the Procurement Legislation",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "submit a written exception report to the relevant board in advance, with reasons showing the exception or waiver is genuinely required",
+      "approver": "relevant board (receives the report)",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "for any contract where the requirement to hold a competitive process is not excluded by the Procurement Legislation, be subject to a written exception report to be submitted in advance to the relevant board by the relevant Service Director / Head of Service, Service Director or Executive Director (which shall include reasons for the exception or waiver which demonstrate that the exception or waiver is genuinely required);"
+    },
+    {
+      "rule_id": "CPR-30",
+      "clause": "7.5.3",
+      "page": 7,
+      "type": "waiver",
+      "scope": [
+        "all"
+      ],
+      "condition": "any exception or waiver",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "obtain S.151 Officer approval, with a record that the reasons were considered and the circumstances are genuinely exceptional",
+      "approver": "S.151 Officer",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "be subject to approval by the S.151 Officer who shall record they have considered the reasons for the waiver and that they are satisfied that the circumstances justifying the waiver are genuinely exceptional (applications for waivers which are a result of poor contract planning will rarely be considered genuinely exceptional);"
+    },
+    {
+      "rule_id": "CPR-31",
+      "clause": "8.2",
+      "page": 7,
+      "type": "procedure",
+      "scope": [
+        "all"
+      ],
+      "condition": "use of a Purchasing Scheme (framework, DPS, Dynamic Market, consortium etc.)",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "seek advice confirming the Council is entitled to use the scheme, the purchases fall within its coverage, and the scheme complies with Procurement Legislation and the Council’s requirements",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "An officer responsible for a procurement exercise may use a Purchasing Scheme provided that they have sought advice to confirm that:"
+    },
+    {
+      "rule_id": "CPR-32",
+      "clause": "9.1",
+      "page": 7,
+      "type": "record",
+      "scope": [
+        "all"
+      ],
+      "condition": "contract awarded above the Threshold and subject to the Procurement Legislation",
+      "threshold_low": null,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": "RELEVANT_THRESHOLD",
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "above the Threshold",
+      "required_action": "relevant Service Director produces a written report in accordance with the Procurement Legislation",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "A written report in accordance with the Procurement Legislation shall be produced by the relevant Service Director for each contract that is awarded which is above the Threshold and subject to the Procurement Legislation"
+    },
+    {
+      "rule_id": "CPR-33",
+      "clause": "9.2",
+      "page": 7,
+      "type": "record",
+      "scope": [
+        "all"
+      ],
+      "condition": "the written report required by 9.1",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "keep the report for three years",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "This report may be requested by the Cabinet Office and shall be kept for three years."
+    },
+    {
+      "rule_id": "CPR-34",
+      "clause": "9.3",
+      "page": 8,
+      "type": "record",
+      "scope": [
+        "all"
+      ],
+      "condition": "all procurement procedures, regardless of value",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "document the progress of the procedure with sufficient information to justify decisions; keep the documentation for three years from contract award",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Such documentation must be kept for three years from the award of the contract."
+    },
+    {
+      "rule_id": "CPR-35",
+      "clause": "10.1",
+      "page": 8,
+      "type": "record",
+      "scope": [
+        "all"
+      ],
+      "condition": "all purchases",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "hold written (including electronic) evidence of the purchase",
+      "approver": null,
+      "evidence_source": [
+        "spend_data",
+        "council_records"
+      ],
+      "verbatim_quote": "There should be written evidence of all purchases (which shall include electronic evidence)."
+    },
+    {
+      "rule_id": "CPR-36",
+      "clause": "10.2",
+      "page": 8,
+      "type": "contract-form",
+      "scope": [
+        "all"
+      ],
+      "condition": "contracts as detailed in Appendix B",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "contract in writing, in a form approved by the Monitoring Officer or their delegated officer",
+      "approver": "Monitoring Officer or their delegated officer",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "All contracts entered into by the Council as detailed in Appendix B must be in writing in a form approved by the Monitoring Officer or their delegated officer."
+    },
+    {
+      "rule_id": "CPR-37",
+      "clause": "10.3",
+      "page": 8,
+      "type": "record",
+      "scope": [
+        "all"
+      ],
+      "condition": "contract documents sealed on behalf of the Council",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "Legal Services retains the documents",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Legal Services shall retain all contract documents that are sealed on behalf of the Council."
+    },
+    {
+      "rule_id": "CPR-38",
+      "clause": "10.4",
+      "page": 8,
+      "type": "record",
+      "scope": [
+        "all"
+      ],
+      "condition": "award of any contract",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "relevant Service Director formally notifies the Service Lead for Commissioning and Procurement (or nominated officer) so the award is recorded on the Council Contract Register",
+      "approver": null,
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "The relevant Service Director must formally notify the Service Lead for Commissioning and Procurement (or nominated officer) of the award of all contracts for the purpose of it being recorded on the Council Contract Register."
+    },
+    {
+      "rule_id": "CPR-39",
+      "clause": "10.5",
+      "page": 8,
+      "type": "contract-form",
+      "scope": [
+        "all"
+      ],
+      "condition": "every contract",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "include the standard clauses of the relevant Standard Form of Agreement",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Every contract shall include the standard clauses set out in the relevant Standard Form of Agreement issued and updated from time to time by the Monitoring Officer or their nominated officer and available from Legal Services."
+    },
+    {
+      "rule_id": "CPR-40",
+      "clause": "10.6",
+      "page": 8,
+      "type": "contract-form",
+      "scope": [
+        "all"
+      ],
+      "condition": "Standard Form of Agreement is to be amended",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "relevant Service Director prepares/amends the form of contract for approval by the Monitoring Officer or their delegated officer",
+      "approver": "Monitoring Officer or their delegated officer",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Where a Standard Form of Agreement is to be amended, the form of contract shall be prepared/amended by the relevant Service Director for approval by the Monitoring Officer or their delegated officer."
+    },
+    {
+      "rule_id": "CPR-41",
+      "clause": "10.7",
+      "page": 8,
+      "type": "contract-form",
+      "scope": [
+        "all"
+      ],
+      "condition": "all contracts, where appropriate",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "include, as a minimum, clauses on the matters listed at 10.7.1 to 10.7.10 (scope, time, quality, insurance, consequences of default, legal compliance, personal data, cancellation for impropriety, 30-day payment, specifications)",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "As a minimum, where appropriate, all contracts shall include clauses setting out:"
+    },
+    {
+      "rule_id": "CPR-42",
+      "clause": "10.7.7",
+      "page": 8,
+      "type": "contract-form",
+      "scope": [
+        "all"
+      ],
+      "condition": "all contracts",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "complete a Data Protection Impact Assessment",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Service Directors must ensure that a Data Protection Impact Assessment is completed for all contracts to inform such clauses."
+    },
+    {
+      "rule_id": "CPR-43",
+      "clause": "11.1",
+      "page": 9,
+      "type": "contract-form",
+      "scope": [
+        "all"
+      ],
+      "condition": "any relaxation of full indemnities releasing the Council from all liability",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "obtain written authorisation before relaxing the indemnity",
+      "approver": "Monitoring Officer and S.151 Officer, or their nominated officers",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "No relaxation of full indemnities releasing the Council from all liability whether provided by public liability insurance or other instrument shall be allowed unless authorised in writing by the Monitoring Officer and the S.151 Officer or their nominated officers."
+    },
+    {
+      "rule_id": "CPR-44",
+      "clause": "11.2",
+      "page": 9,
+      "type": "contract-form",
+      "scope": [
+        "goods",
+        "services",
+        "works"
+      ],
+      "condition": "contract estimated to exceed £500,000 for the execution of works, or for supplies or services by a particular date or series of dates",
+      "threshold_low": 500000,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "estimated to exceed £500,000",
+      "required_action": "consider requiring a performance bond for at least 10% of the contract value",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Where a contract is estimated to exceed £500,000, in value or amount and is for the execution of works (or for the supplies or services by a particular date or series of dates) the relevant Service Director should consider requiring a performance bond (for an amount equal to at least 10% of the value of the contract) from the contractor (to provide sufficient security for the due performance of the contract)."
+    },
+    {
+      "rule_id": "CPR-45",
+      "clause": "11.3",
+      "page": 9,
+      "type": "contract-form",
+      "scope": [
+        "all"
+      ],
+      "condition": "a performance bond is required",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "bond in a form approved by Legal Services and included in the Invitation to Tender",
+      "approver": "Legal Services",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "The bond must be in a form approved by Legal Services and must be included in the Invitation to Tender."
+    },
+    {
+      "rule_id": "CPR-46",
+      "clause": "11.4",
+      "page": 9,
+      "type": "contract-form",
+      "scope": [
+        "all"
+      ],
+      "condition": "a performance bond is not considered necessary (see 11.2)",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "undertake a written risk assessment, seek approval, and keep a copy of the risk assessment on the contract file",
+      "approver": "Service Director for Finance and Property",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "If a performance bond is not considered to be necessary, the relevant Service Director must: 11.4.1 undertake a risk assessment in writing; and 11.4.2 seek approval from the Service Director for Finance and Property; and 11.4.3 keep a copy of the risk assessment on the contract file for inspection."
+    },
+    {
+      "rule_id": "CPR-47",
+      "clause": "11.5",
+      "page": 9,
+      "type": "contract-form",
+      "scope": [
+        "all"
+      ],
+      "condition": "every contract",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "assess the contract for risk; where insurance is needed, set adequate cover and ensure the contractor holds up-to-date policies, in consultation with the Service Director for Finance and Property or nominated officer",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Every contract should be assessed for risk. If the risk assessment identifies the need for insurance the Service Director must:"
+    },
+    {
+      "rule_id": "CPR-48",
+      "clause": "11.8",
+      "page": 10,
+      "type": "contract-form",
+      "scope": [
+        "all"
+      ],
+      "condition": "any document sealed with the Common Seal",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "sealing attested and witnessed in writing",
+      "approver": "Monitoring Officer or an officer duly designated by them",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "The affixing of the Seal shall be attested and witnessed in writing by the Monitoring Officer or an officer duly designated by them in accordance with the delegated powers conferred by the Council."
+    },
+    {
+      "rule_id": "CPR-49",
+      "clause": "11.9",
+      "page": 10,
+      "type": "record",
+      "scope": [
+        "all"
+      ],
+      "condition": "every sealing of a document",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "make a consecutively numbered entry in a book or electronic record, signed by the person attesting the sealing",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "An entry of every sealing of a document shall be made and consecutively numbered in a book or electronic record to be provided for the purpose and shall be signed (including a digital signature) by the person attesting the sealing."
+    },
+    {
+      "rule_id": "CPR-50",
+      "clause": "11.11",
+      "page": 10,
+      "type": "contract-form",
+      "scope": [
+        "goods",
+        "services",
+        "works",
+        "concession"
+      ],
+      "condition": "contract with a value above Threshold",
+      "threshold_low": null,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": "RELEVANT_THRESHOLD",
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "above Threshold",
+      "required_action": "seal the contract",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "All contracts whether for goods, services, works or concession contracts the value of which is above Threshold shall be sealed."
+    },
+    {
+      "rule_id": "CPR-51",
+      "clause": "11.13",
+      "page": 10,
+      "type": "record",
+      "scope": [
+        "all"
+      ],
+      "condition": "documents executed on behalf of the Council that are not required by law to be under seal",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "signed by the Monitoring Officer or designated officer; a register of such documents kept",
+      "approver": "Monitoring Officer or an officer designated by them",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "A register of such documents shall be kept by the Monitoring Officer or officer duly designated by them."
+    },
+    {
+      "rule_id": "CPR-52",
+      "clause": "App A row 1",
+      "page": 11,
+      "type": "approval",
+      "scope": [
+        "all"
+      ],
+      "condition": "Total Contract Value up to the relevant Threshold",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": true,
+      "threshold_high_param": "RELEVANT_THRESHOLD",
+      "threshold_text": "up to relevant Threshold",
+      "required_action": "contract awarded under the relevant Service Director’s delegated authority (or by officers nominated by them in writing)",
+      "approver": "Relevant Service Director, or officers nominated by the Service Director in writing",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "up to relevant Threshold Relevant Service Director (or such officers as nominated by the Service Director in writing) shall have delegated authority to award the contract."
+    },
+    {
+      "rule_id": "CPR-53",
+      "clause": "App A row 2",
+      "page": 11,
+      "type": "approval",
+      "scope": [
+        "all"
+      ],
+      "condition": "Total Contract Value above the relevant threshold and less than £500,000",
+      "threshold_low": null,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": "RELEVANT_THRESHOLD",
+      "threshold_high": 500000,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": null,
+      "threshold_text": "Above the relevant threshold and less than £500,000",
+      "required_action": "written report by the relevant Service Director provided to and approved by the relevant board; award by the Service Director following recommendation of the S151 officer and Monitoring Officer",
+      "approver": "Relevant Service Director, following recommendation of the S151 officer and Monitoring Officer; relevant board approves the written report",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Above the relevant threshold and less than £500,000 Relevant Service Director (following recommendation of the S151 officer and Monitoring Officer) shall have delegated authority to award the contract provided a written report by the relevant Service Director (or such officers as nominated by them in writing) has been provided and approved by the relevant board."
+    },
+    {
+      "rule_id": "CPR-54",
+      "clause": "App A row 3",
+      "page": 11,
+      "type": "approval",
+      "scope": [
+        "all"
+      ],
+      "condition": "Total Contract Value above £500,000 and less than £2.5million",
+      "threshold_low": 500000,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": null,
+      "threshold_high": 2500000,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": null,
+      "threshold_text": "Above £500,000 and less than £2.5million",
+      "required_action": "award is a Key Decision; written report approved by the relevant board; decision made in accordance with the Call-In and Forward Plan Parts",
+      "approver": "Relevant Service Director in consultation with the relevant Portfolio Holder, following recommendation by the relevant Executive Director, S151 officer and Monitoring Officer; relevant board approves the written report",
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "Above £500,000 and less than £2.5million The award of these contracts shall be a Key Decision delegated to the relevant Service Director in consultation with the relevant Portfolio Holder (following recommendation by the relevant Executive Director, S151 officer and Monitoring Officer) to award the contract provided:"
+    },
+    {
+      "rule_id": "CPR-55",
+      "clause": "App A row 4",
+      "page": 11,
+      "type": "approval",
+      "scope": [
+        "all"
+      ],
+      "condition": "Total Contract Value £2.5million or more",
+      "threshold_low": 2500000,
+      "threshold_low_inclusive": true,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "£2.5million or more",
+      "required_action": "obtain Executive approval (may be given by delegated authority sought through quarterly reports to the Executive)",
+      "approver": "the Executive; may delegate award to the relevant Service Director in consultation with the relevant Portfolio Holder, S.151 Officer and the Monitoring Officer",
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "£2.5million or more Contracts with a value in excess of £2.5million shall require Executive approval, which may be given as below."
+    },
+    {
+      "rule_id": "CPR-56",
+      "clause": "App B row A",
+      "page": 12,
+      "type": "procedure",
+      "scope": [
+        "all"
+      ],
+      "condition": "total value (exclusive of VAT) above £1,000 and less than £25,000",
+      "threshold_low": 1000,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": null,
+      "threshold_high": 25000,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": null,
+      "threshold_text": "Above £1,000 and less than £25,000",
+      "required_action": "seek at least one quote from an appropriate source",
+      "approver": null,
+      "evidence_source": [
+        "spend_data",
+        "council_records"
+      ],
+      "verbatim_quote": "Above £1,000 and less than £25,000 At least one quote must be sought from an appropriate source."
+    },
+    {
+      "rule_id": "CPR-57",
+      "clause": "App B row B1",
+      "page": 12,
+      "type": "procedure",
+      "scope": [
+        "goods",
+        "services"
+      ],
+      "condition": "goods and services, total value (exclusive of VAT) £25,000 or more and less than the Threshold",
+      "threshold_low": 25000,
+      "threshold_low_inclusive": true,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": "THRESHOLD_GOODS_SERVICES",
+      "threshold_text": "£25,000 or more and less than the Threshold",
+      "required_action": "send invitations to quote via the Procurement Portal to at least three appropriate sources, including at least one SME or VCSE organisation and one local supplier where appropriate and possible",
+      "approver": null,
+      "evidence_source": [
+        "spend_data",
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "Goods and Services: £25,000 or more and less than the Threshold Invitations to quote must be sent via the Procurement Portal to at least three appropriate sources, including at least one SME* or VCSE* organisation and one local supplier ****(where appropriate and possible**)."
+    },
+    {
+      "rule_id": "CPR-58",
+      "clause": "App B row B1",
+      "page": 12,
+      "type": "advertising",
+      "scope": [
+        "goods",
+        "services"
+      ],
+      "condition": "goods and services, total value (exclusive of VAT) £25,000 or more and less than the Threshold",
+      "threshold_low": 25000,
+      "threshold_low_inclusive": true,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": "THRESHOLD_GOODS_SERVICES",
+      "threshold_text": "£25,000 or more and less than the Threshold",
+      "required_action": "publish a contract notice on the CDP",
+      "approver": null,
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "Goods and Services: £25,000 or more and less than the Threshold Invitations to quote must be sent via the Procurement Portal to at least three appropriate sources, including at least one SME* or VCSE* organisation and one local supplier ****(where appropriate and possible**). A contract notice must be published on the CDP"
+    },
+    {
+      "rule_id": "CPR-59",
+      "clause": "App B row B2",
+      "page": 12,
+      "type": "procedure",
+      "scope": [
+        "works",
+        "concession",
+        "light_touch"
+      ],
+      "condition": "works, concession and light touch contracts, total value (exclusive of VAT) £25,000 or more and less than £500,000",
+      "threshold_low": 25000,
+      "threshold_low_inclusive": true,
+      "threshold_low_param": null,
+      "threshold_high": 500000,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": null,
+      "threshold_text": "£25,000 or more and less than £500,000",
+      "required_action": "send invitations to quote via the Procurement Portal to at least three appropriate sources, including at least one SME or VCSE organisation and one local supplier where appropriate and possible",
+      "approver": null,
+      "evidence_source": [
+        "spend_data",
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "Works, Concession contracts and Light Touch contracts: £25,000 or more and less than £500,000 Invitations to quote must be sent via the Procurement Portal to at least three appropriate sources, including at least one SME* or VCSE* organisation and one local supplier **** (where appropriate and possible**)."
+    },
+    {
+      "rule_id": "CPR-60",
+      "clause": "App B row B2",
+      "page": 12,
+      "type": "advertising",
+      "scope": [
+        "works",
+        "concession",
+        "light_touch"
+      ],
+      "condition": "works, concession and light touch contracts, total value (exclusive of VAT) £25,000 or more and less than £500,000",
+      "threshold_low": 25000,
+      "threshold_low_inclusive": true,
+      "threshold_low_param": null,
+      "threshold_high": 500000,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": null,
+      "threshold_text": "£25,000 or more and less than £500,000",
+      "required_action": "publish a contract notice on the CDP",
+      "approver": null,
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "Works, Concession contracts and Light Touch contracts: £25,000 or more and less than £500,000 Invitations to quote must be sent via the Procurement Portal to at least three appropriate sources, including at least one SME* or VCSE* organisation and one local supplier **** (where appropriate and possible**). A contract notice must be published on the CDP"
+    },
+    {
+      "rule_id": "CPR-61",
+      "clause": "App B row C",
+      "page": 12,
+      "type": "procedure",
+      "scope": [
+        "works",
+        "concession",
+        "light_touch"
+      ],
+      "condition": "works, concession and light touch contracts, total value (exclusive of VAT) above £500,000 and less than the Threshold",
+      "threshold_low": 500000,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": "RELEVANT_THRESHOLD",
+      "threshold_text": "Above £500,000 and less than the Threshold",
+      "required_action": "run a full competitive tender process and seek at least five written tenders via the Procurement Portal",
+      "approver": null,
+      "evidence_source": [
+        "spend_data",
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "Works, Concession contracts and Light Touch contracts: Above £500,000 and less than the Threshold Full competitive tender process applies and at least five written tenders must be sought via the Procurement Portal."
+    },
+    {
+      "rule_id": "CPR-62",
+      "clause": "App B row C",
+      "page": 12,
+      "type": "advertising",
+      "scope": [
+        "works",
+        "concession",
+        "light_touch"
+      ],
+      "condition": "works, concession and light touch contracts, total value (exclusive of VAT) above £500,000 and less than the Threshold",
+      "threshold_low": 500000,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": "RELEVANT_THRESHOLD",
+      "threshold_text": "Above £500,000 and less than the Threshold",
+      "required_action": "place an advert on the Portal together with information on the CDP",
+      "approver": null,
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "Works, Concession contracts and Light Touch contracts: Above £500,000 and less than the Threshold Full competitive tender process applies and at least five written tenders must be sought via the Procurement Portal. An advert should be placed on the Portal together with information on the CDP"
+    },
+    {
+      "rule_id": "CPR-63",
+      "clause": "App B row D",
+      "page": 12,
+      "type": "procedure",
+      "scope": [
+        "goods",
+        "services",
+        "works",
+        "concession",
+        "light_touch"
+      ],
+      "condition": "any contract with a total value (exclusive of VAT) above Threshold",
+      "threshold_low": null,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": "RELEVANT_THRESHOLD",
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "Above Threshold",
+      "required_action": "apply Procurement Legislation procedures: full competitive tender process with at least five written tenders sought (where appropriate) via the Procurement portal",
+      "approver": null,
+      "evidence_source": [
+        "spend_data",
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "Goods and Services Works, Concession contracts and Light Touch contracts: Above Threshold Procurement Legislation Procedures apply– full competitive tender process with at least five written tenders sought (where appropriate) via the Procurement portal."
+    },
+    {
+      "rule_id": "CPR-64",
+      "clause": "App B row D",
+      "page": 12,
+      "type": "advertising",
+      "scope": [
+        "goods",
+        "services",
+        "works",
+        "concession",
+        "light_touch"
+      ],
+      "condition": "any contract with a total value (exclusive of VAT) above Threshold",
+      "threshold_low": null,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": "RELEVANT_THRESHOLD",
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "Above Threshold",
+      "required_action": "place an advert on the CDP",
+      "approver": null,
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "Goods and Services Works, Concession contracts and Light Touch contracts: Above Threshold Procurement Legislation Procedures apply– full competitive tender process with at least five written tenders sought (where appropriate) via the Procurement portal. An advert should be placed on the CDP"
+    },
+    {
+      "rule_id": "CPR-65",
+      "clause": "App C row A",
+      "page": 14,
+      "type": "exclusion",
+      "scope": [
+        "all"
+      ],
+      "condition": "competition excluded because the proposed contract is excluded under the Procurement Legislation",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "obtain prior written approval from the Monitoring Officer and, where applicable, prior approval of the relevant board",
+      "approver": "Monitoring Officer (prior written approval); relevant board where applicable",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "The proposed contract is excluded under the Procurement Legislation. Prior written approval from the Monitoring Officer is required and where applicable prior approval has been granted by the relevant board."
+    },
+    {
+      "rule_id": "CPR-66",
+      "clause": "App C row B",
+      "page": 14,
+      "type": "exclusion",
+      "scope": [
+        "all"
+      ],
+      "condition": "competition excluded because the contract is governed by the Provider Selection Regime (PSR)",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "record key decisions and follow the relevant process under PSR",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Where the contract is governed by the Provider Selection Regime (PSR) Key decisions must be recorded and the relevant process under PSR followed"
+    },
+    {
+      "rule_id": "CPR-67",
+      "clause": "App C row C",
+      "page": 14,
+      "type": "exclusion",
+      "scope": [
+        "all"
+      ],
+      "condition": "competition excluded because the contract is awarded under a Purchasing Scheme with no further competition",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "obtain prior written approval from the Monitoring Officer and, where applicable, prior approval of the relevant board",
+      "approver": "Monitoring Officer (prior written approval); relevant board where applicable",
+      "evidence_source": [
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "The proposed contract is being awarded under a Purchasing Scheme (refer to 8 above) of a type where no further competition is being undertaken a competition has already been undertaken on behalf of the Council or other public sector organisation; or Prior written approval from the Monitoring Officer is required and where applicable prior approval has been granted by the relevant board."
+    },
+    {
+      "rule_id": "CPR-68",
+      "clause": "App C row D",
+      "page": 14,
+      "type": "exclusion",
+      "scope": [
+        "all"
+      ],
+      "condition": "competition excluded because the contract is an extension the existing contract provides for",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "obtain approval of the S151 Officer for the extension",
+      "approver": "S151 Officer",
+      "evidence_source": [
+        "spend_data",
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "The proposed contract is an extension to an existing contract where the existing contract provides for such extension. Approval of the S151 Officer"
+    },
+    {
+      "rule_id": "CPR-69",
+      "clause": "App C row E",
+      "page": 14,
+      "type": "exclusion",
+      "scope": [
+        "all"
+      ],
+      "condition": "variation of scope of an existing contract (provided for in the contract or permitted under Procurement Legislation), contract value below the Threshold",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": "RELEVANT_THRESHOLD",
+      "threshold_text": "below the Threshold",
+      "required_action": "obtain prior written approval from the Monitoring Officer and S151 Officer",
+      "approver": "Monitoring Officer and S151 Officer",
+      "evidence_source": [
+        "spend_data",
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "For contract value below the Threshold prior written approval from the Monitoring Officer and S151 Officer is required."
+    },
+    {
+      "rule_id": "CPR-70",
+      "clause": "App C row E",
+      "page": 14,
+      "type": "exclusion",
+      "scope": [
+        "all"
+      ],
+      "condition": "variation of scope of an existing contract (provided for in the contract or permitted under Procurement Legislation), contract value greater than the Threshold",
+      "threshold_low": null,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": "RELEVANT_THRESHOLD",
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "greater than the Threshold",
+      "required_action": "obtain approval of the relevant board, following a report to the board with recommendation from the Monitoring Officer and S151 Officer",
+      "approver": "relevant board, on recommendation from the Monitoring Officer and S151 Officer",
+      "evidence_source": [
+        "spend_data",
+        "contract_notices",
+        "council_records"
+      ],
+      "verbatim_quote": "For contract value greater than the Threshold, approval of the relevant board, following the submission of an extension report to the relevant board with recommendation from Monitoring Officer and S151 Officer"
+    },
+    {
+      "rule_id": "CPR-71",
+      "clause": "App C row F",
+      "page": 15,
+      "type": "exclusion",
+      "scope": [
+        "services"
+      ],
+      "condition": "competition excluded for the listed social care services (individual placements and packages)",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "keep a record of the reasons for the choice of provider on the individual’s case notes",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Service Directors must ensure that a record of the reasons for the choice of provider is maintained on the individual’s case notes."
+    },
+    {
+      "rule_id": "CPR-72",
+      "clause": "App C closing",
+      "page": 15,
+      "type": "approval",
+      "scope": [
+        "all"
+      ],
+      "condition": "an Appendix C exemption is applied to a contract with an annual or total value of more than the Threshold",
+      "threshold_low": null,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": "RELEVANT_THRESHOLD",
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "more than the Threshold",
+      "required_action": "obtain approval of the relevant board",
+      "approver": "relevant board",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "In the interests of clarity where an exemption is applied all contracts with an annual or total value of more than the Threshold must be approved by the relevant board."
+    }
+  ],
+  "excluded": [
+    {
+      "clause": "1.1",
+      "page": 1,
+      "reason": "Background: quotes the statutory power to make standing orders"
+    },
+    {
+      "clause": "1.2",
+      "page": 1,
+      "reason": "Background: states what the Rules are"
+    },
+    {
+      "clause": "1.3",
+      "page": 1,
+      "reason": "Definition of the Procurement Legislation"
+    },
+    {
+      "clause": "1.4",
+      "page": 1,
+      "reason": "Definition of the Threshold; captured as parameters, not a rule"
+    },
+    {
+      "clause": "1.5",
+      "page": 1,
+      "reason": "Definition of procuring"
+    },
+    {
+      "clause": "1.6",
+      "page": 1,
+      "reason": "Definition of entering a contract (including 1.6.1 and 1.6.2)"
+    },
+    {
+      "clause": "2.1",
+      "page": 2,
+      "reason": "Purpose statement"
+    },
+    {
+      "clause": "2.2",
+      "page": 2,
+      "reason": "Purpose statement"
+    },
+    {
+      "clause": "2.3",
+      "page": 2,
+      "reason": "Purpose statement"
+    },
+    {
+      "clause": "3.1",
+      "page": 2,
+      "reason": "Scope of application of the Rules; sets no testable action"
+    },
+    {
+      "clause": "3.2",
+      "page": 2,
+      "reason": "States who interprets the Rules"
+    },
+    {
+      "clause": "3.3",
+      "page": 2,
+      "reason": "Extends the Rules to schools; sets no separate testable action"
+    },
+    {
+      "clause": "3.4",
+      "page": 2,
+      "reason": "General duty to follow Council policies and Best Value; too broad to test"
+    },
+    {
+      "clause": "3.6",
+      "page": 2,
+      "reason": "Pointer to the appendices"
+    },
+    {
+      "clause": "6.1",
+      "page": 3,
+      "reason": "General responsibility to comply with other legislation, rules and guidance not set out in this document"
+    },
+    {
+      "clause": "6.2",
+      "page": 3,
+      "reason": "Order of precedence between sources"
+    },
+    {
+      "clause": "6.3",
+      "page": 3,
+      "reason": "Descriptive: lists processes that may be compliant"
+    },
+    {
+      "clause": "6.5",
+      "page": 4,
+      "reason": "Pointer: thresholds are published on the intranet, not here"
+    },
+    {
+      "clause": "6.6",
+      "page": 4,
+      "reason": "Explanatory note on transitional legislation"
+    },
+    {
+      "clause": "6.7",
+      "page": 4,
+      "reason": "General presumption in favour of competition; no testable action"
+    },
+    {
+      "clause": "6.9",
+      "page": 4,
+      "reason": "Permission: a national database can be used below Threshold"
+    },
+    {
+      "clause": "6.11",
+      "page": 4,
+      "reason": "Cross border interest is not defined; too vague to test"
+    },
+    {
+      "clause": "6.12",
+      "page": 4,
+      "reason": "Descriptive: names the two procedures available under PA2023"
+    },
+    {
+      "clause": "6.13",
+      "page": 4,
+      "reason": "Advice to take care and seek advice on choice of procedure"
+    },
+    {
+      "clause": "6.18",
+      "page": 5,
+      "reason": "General principles for tendering; no pass/fail test"
+    },
+    {
+      "clause": "6.23",
+      "page": 5,
+      "reason": "Heading carrying a clause number; no content"
+    },
+    {
+      "clause": "6.25",
+      "page": 6,
+      "reason": "Defers to legislative provisions not set out here; advice may be sought"
+    },
+    {
+      "clause": "7.1",
+      "page": 6,
+      "reason": "Pointer to Appendix C, where the exclusions are captured"
+    },
+    {
+      "clause": "7.5.4",
+      "page": 7,
+      "reason": "Circular: requires approval under these Rules, already captured by 7.3 to 7.5.3"
+    },
+    {
+      "clause": "7.6",
+      "page": 7,
+      "reason": "Defers to conditions in the Procurement Legislation not set out here"
+    },
+    {
+      "clause": "7.7",
+      "page": 7,
+      "reason": "Pointer to Appendix C; repeats 7.1"
+    },
+    {
+      "clause": "8.1",
+      "page": 7,
+      "reason": "Definition of a Purchasing Scheme"
+    },
+    {
+      "clause": "8.3",
+      "page": 7,
+      "reason": "States a whole or partial exemption without saying which; advice should be sought"
+    },
+    {
+      "clause": "11.6",
+      "page": 9,
+      "reason": "Custody of the Seal; administrative, not a procurement test"
+    },
+    {
+      "clause": "11.7",
+      "page": 9,
+      "reason": "Permission: when the Seal may be affixed"
+    },
+    {
+      "clause": "11.10",
+      "page": 10,
+      "reason": "Lists non-procurement documents to be sealed (petition, mortgage, stock transfer)"
+    },
+    {
+      "clause": "11.12",
+      "page": 10,
+      "reason": "Signature of documents in legal proceedings; not procurement"
+    },
+    {
+      "clause": "11.14",
+      "page": 10,
+      "reason": "Selection of Counsel; not procurement"
+    },
+    {
+      "clause": "App B intro",
+      "page": 12,
+      "reason": "Describes the table; sets no action of its own"
+    },
+    {
+      "clause": "App B note *",
+      "page": 13,
+      "reason": "Definitions of SME and VCSE"
+    },
+    {
+      "clause": "App B note **",
+      "page": 13,
+      "reason": "Policy statement on SME/VCSE and local suppliers; no testable action"
+    },
+    {
+      "clause": "App B note ***",
+      "page": 13,
+      "reason": "States there are three thresholds published on the intranet; captured as parameters"
+    },
+    {
+      "clause": "App B note ****",
+      "page": 13,
+      "reason": "Pointer to the local supplier policy"
+    },
+    {
+      "clause": "App C intro",
+      "page": 14,
+      "reason": "Introductory sentence restating 7.1"
+    }
+  ],
+  "notes": [
+    {
+      "kind": "gap",
+      "clauses": [
+        "1.4",
+        "6.5",
+        "App B note ***"
+      ],
+      "description": "The Threshold figures that drive most value bands are not printed in the document; it refers the reader to the Procurement intranet page. Rules using them cannot be tested until the auditor supplies the figures in force for the period."
+    },
+    {
+      "kind": "contradiction",
+      "clauses": [
+        "6.15",
+        "App B intro"
+      ],
+      "description": "Clause 6.15 lists Value Added Tax as included in Total Contract Value, while the Appendix B column heading reads “Total Value exclusive of VAT”. The document does not say which basis applies when placing a contract in a value band."
+    },
+    {
+      "kind": "gap",
+      "clauses": [
+        "App A row 2",
+        "App A row 3",
+        "App B row B2",
+        "App B row C"
+      ],
+      "description": "A value of exactly £500,000 falls in no band: Appendix A row 2 and Appendix B row B2 stop at “less than £500,000”, and Appendix A row 3 and Appendix B row C start “Above £500,000”. Clause 7.4.2 by contrast includes £500,000 (“up to”)."
+    },
+    {
+      "kind": "gap",
+      "clauses": [
+        "App B row B1",
+        "App B row C",
+        "App B row D",
+        "App C row E"
+      ],
+      "description": "A value exactly equal to the Threshold falls in no band: Appendix B rows B1 and C stop at “less than the Threshold” and row D starts “Above Threshold”; Appendix C row E covers “below” and “greater than” only."
+    },
+    {
+      "kind": "gap",
+      "clauses": [
+        "App B row A",
+        "10.2"
+      ],
+      "description": "No award procedure is stated for purchases of £1,000 or less: Appendix B starts at “Above £1,000”. Clause 10.2 requires writing for contracts “as detailed in Appendix B”, so the writing requirement for such purchases is also unstated."
+    },
+    {
+      "kind": "contradiction",
+      "clauses": [
+        "App A row 4"
+      ],
+      "description": "The band is headed “£2.5million or more” but the text beside it says “in excess of £2.5million”; a value of exactly £2.5million is treated differently by the two wordings. Recorded as printed in the band (inclusive)."
+    },
+    {
+      "kind": "contradiction",
+      "clauses": [
+        "1.4",
+        "App B note ***"
+      ],
+      "description": "Clause 1.4 lists four categories of Threshold (Goods & Services, Works, Concession contracts, Light Touch contracts); the Appendix B footnote says there are three, grouping works with concession contracts."
+    },
+    {
+      "kind": "gap",
+      "clauses": [
+        "App B row B2",
+        "App B row C"
+      ],
+      "description": "Rows B2 and C only work as a sequence if the Threshold for works, concession and light touch contracts is above £500,000. The figures are not printed, so this cannot be confirmed from the document; if a category’s Threshold is lower, row C is empty and row B2 overlaps row D."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "7.2",
+        "App B row B1",
+        "App B row B2"
+      ],
+      "description": "The same boundary is expressed two ways: “more than £24,999.99” in 7.2 and “£25,000 or more” in Appendix B. Clause 7.2 also provides the exception route only above that figure; none is stated for the Appendix B row A band."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "7.4.2",
+        "7.2",
+        "7.3"
+      ],
+      "description": "Clause 7.4.2 reads “provided and an exception report” (words appear to be missing) and “unless 7.3 applies and for reasons of urgency”; urgency is dealt with in 7.2.1, not 7.3, so the cross-reference may be to the wrong clause."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "App C row C"
+      ],
+      "description": "The circumstance reads “no further competition is being undertaken a competition has already been undertaken” and ends “; or” with nothing following; words appear to be missing."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "App C row E",
+        "App C row D"
+      ],
+      "description": "Row E (variations) requires “an extension report”, wording that fits row D (extensions). Row D itself names an approver but no report."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "App A row 3"
+      ],
+      "description": "Cross-references are left blank: “Parts [] (Call-In) and [] (Forward Plan)”. The document title is likewise printed as “Part []”."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "App B note ***",
+        "App B row D"
+      ],
+      "description": "Footnote *** is defined but no *** marker appears in the Appendix B table. Row D’s heading runs “Goods and Services Works,” with no separator."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "5.1",
+        "5.2",
+        "5.2.1"
+      ],
+      "description": "Clause 5.1 introduces a list of what councils must publish; the second and third items are numbered 5.2 and 5.2.1 as if they were separate clauses."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "6.23"
+      ],
+      "description": "“Evaluations of Quotes and Tenders” is a sub-heading that carries clause number 6.23."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "1.6",
+        "1.6.1",
+        "1.6.2"
+      ],
+      "description": "The last two items in the 1.6 list are numbered 1.6.1 and 1.6.2 while the items before them are bullets; they also extend “entering a contract” to renewals, extensions and grants."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "7.1",
+        "7.7"
+      ],
+      "description": "Clauses 7.1 and 7.7 say the same thing (exclusions are in Appendix C)."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "11.5",
+        "11.5.3"
+      ],
+      "description": "Sub-clause 11.5.3 is not a complete sentence (“…or nominated officer who must ensure the contractor’s status under the Inland Revenue Construction Industry Tax Deduction Scheme”)."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "6.11"
+      ],
+      "description": "Refers to tenderers “from other member states”, with no definition of cross border interest."
+    },
+    {
+      "kind": "drafting",
+      "clauses": [
+        "10.7",
+        "10.7.10"
+      ],
+      "description": "Item 10.7.10 is a free-standing requirement about specifications, numbered as part of the list of contract clauses."
+    }
+  ]
+}

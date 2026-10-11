@@ -1,0 +1,245 @@
+{
+  "generated_from": [],
+  "opinion_basis": [],
+  "agreed_actions": [],
+  "gaps": [],
+  "audits": [
+    {
+      "id": "AUD-01",
+      "kind": "audit",
+      "area": "Contract Letting",
+      "opinion": "Reasonable Assurance",
+      "follow_up_opinion": null,
+      "period": "End of March 2025"
+    },
+    {
+      "id": "AUD-02",
+      "kind": "audit",
+      "area": "Purchase Cards",
+      "opinion": "Limited Assurance",
+      "follow_up_opinion": null,
+      "period": "End of December 2025"
+    }
+  ],
+  "risk_themes": [
+    {
+      "id": "THM-01",
+      "theme": "Contracts & Partnerships",
+      "detail": "fixture"
+    }
+  ],
+  "scoring_method": {
+    "usable": true,
+    "reason_if_not_usable": null,
+    "rating_stages": [],
+    "appetite": [],
+    "likelihood_scale": [
+      {
+        "id": "LIK-01",
+        "score": 5,
+        "label": "Certain"
+      },
+      {
+        "id": "LIK-02",
+        "score": 4,
+        "label": "Almost Certain"
+      },
+      {
+        "id": "LIK-03",
+        "score": 3,
+        "label": "Likely"
+      },
+      {
+        "id": "LIK-04",
+        "score": 2,
+        "label": "Unlikely"
+      },
+      {
+        "id": "LIK-05",
+        "score": 1,
+        "label": "Rare"
+      }
+    ],
+    "impact_scale": [
+      {
+        "id": "IMP-01",
+        "score": 5,
+        "label": "Critical",
+        "criteria": {}
+      },
+      {
+        "id": "IMP-02",
+        "score": 4,
+        "label": "Major",
+        "criteria": {}
+      },
+      {
+        "id": "IMP-03",
+        "score": 3,
+        "label": "Medium",
+        "criteria": {}
+      },
+      {
+        "id": "IMP-04",
+        "score": 2,
+        "label": "Minor",
+        "criteria": {}
+      },
+      {
+        "id": "IMP-05",
+        "score": 1,
+        "label": "Negligible",
+        "criteria": {}
+      },
+      {
+        "id": "IMP-06",
+        "score": 2,
+        "label": "Medium",
+        "criteria": {}
+      }
+    ],
+    "matrix": {
+      "likelihood_labels": [
+        "Rare",
+        "Unlikely",
+        "Likely",
+        "Almost Certain",
+        "Certain"
+      ],
+      "sources": [],
+      "rows": [
+        {
+          "impact_score": 5,
+          "impact_label": "Critical",
+          "scores": [
+            5,
+            10,
+            15,
+            20,
+            25
+          ],
+          "bands": [
+            "Moderate",
+            "High",
+            "Extreme",
+            "Extreme",
+            "Extreme"
+          ],
+          "sources": []
+        },
+        {
+          "impact_score": 4,
+          "impact_label": "Major",
+          "scores": [
+            4,
+            8,
+            12,
+            16,
+            20
+          ],
+          "bands": [
+            "Moderate",
+            "High",
+            "High",
+            "Extreme",
+            "Extreme"
+          ],
+          "sources": []
+        },
+        {
+          "impact_score": 3,
+          "impact_label": "Medium",
+          "scores": [
+            3,
+            6,
+            9,
+            12,
+            15
+          ],
+          "bands": [
+            "Low",
+            "Moderate",
+            "High",
+            "High",
+            "Extreme"
+          ],
+          "sources": []
+        },
+        {
+          "impact_score": 2,
+          "impact_label": "Minor",
+          "scores": [
+            2,
+            4,
+            6,
+            8,
+            10
+          ],
+          "bands": [
+            "Low",
+            "Moderate",
+            "Moderate",
+            "High",
+            "High"
+          ],
+          "sources": []
+        },
+        {
+          "impact_score": 1,
+          "impact_label": "Negligible",
+          "scores": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "bands": [
+            "Low",
+            "Low",
+            "Low",
+            "Moderate",
+            "Moderate"
+          ],
+          "sources": []
+        }
+      ]
+    },
+    "bands": [
+      {
+        "id": "BND-01",
+        "band": "Extreme",
+        "score_range": "15 -25",
+        "rag": "Red"
+      },
+      {
+        "id": "BND-02",
+        "band": "Medium - High",
+        "score_range": "8-12",
+        "rag": "Amber"
+      },
+      {
+        "id": "BND-03",
+        "band": "Moderate",
+        "score_range": "4-6",
+        "rag": null
+      },
+      {
+        "id": "BND-04",
+        "band": "Low",
+        "score_range": "Up to 3",
+        "rag": "Green"
+      }
+    ]
+  },
+  "discrepancies": [
+    {
+      "id": "DIS-01",
+      "description": "Text prints 'Medium (2)'; the table and matrix print 3."
+    },
+    {
+      "id": "DIS-02",
+      "description": "Register entry at 15-25 in the band table; 'Score 9 or above' in a figure."
+    }
+  ]
+}

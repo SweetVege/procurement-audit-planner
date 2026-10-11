@@ -1,0 +1,13 @@
+row_id,source_file,sheet_row,Service,Expenditure category,Narrative,Date,Net amount,Supplier name,pay_date,amount_pence,supplier_norm,tag
+P02.xlsx:3,P02.xlsx,3,Environment,Supplies & Services,Minor Works,2026-05-04T10:00:00.000,14000.0,Alpha Works,2026-05-04,1400000,ALPHA WORKS,general_procurement
+P02.xlsx:4,P02.xlsx,4,Environment,Supplies & Services,Minor Works,2026-05-11T10:00:00.000,13500.0,Alpha Works,2026-05-11,1350000,ALPHA WORKS,general_procurement
+P02.xlsx:5,P02.xlsx,5,Environment,Supplies & Services,Minor Works,2026-05-20T10:00:00.000,9000.0,Alpha Works,2026-05-20,900000,ALPHA WORKS,general_procurement
+P02.xlsx:6,P02.xlsx,6,Environment,Supplies & Services,Minor Works,2026-05-05T10:00:00.000,20000.0,Bravo Build,2026-05-05,2000000,BRAVO BUILD,general_procurement
+P02.xlsx:7,P02.xlsx,7,Environment,Supplies & Services,Minor Works,2026-05-19T10:00:00.000,8000.0,Bravo Build,2026-05-19,800000,BRAVO BUILD,general_procurement
+P02.xlsx:8,P02.xlsx,8,Environment,Supplies & Services,Minor Works,2026-05-06T10:00:00.000,12600.0,Charlie Civils,2026-05-06,1260000,CHARLIE CIVILS,general_procurement
+P02.xlsx:9,P02.xlsx,9,Environment,Supplies & Services,Minor Works,2026-05-07T10:00:00.000,12500.0,Charlie Civils,2026-05-07,1250000,CHARLIE CIVILS,general_procurement
+P02.xlsx:10,P02.xlsx,10,Environment,Supplies & Services,Minor Works,2026-05-12T10:00:00.000,2400.0,Delta Supplies,2026-05-12,240000,DELTA SUPPLIES,general_procurement
+P02.xlsx:11,P02.xlsx,11,Environment,Supplies & Services,Minor Works,2026-05-14T10:00:00.000,2400.0,Delta Supplies,2026-05-14,240000,DELTA SUPPLIES,general_procurement
+P02.xlsx:12,P02.xlsx,12,Environment,Supplies & Services,Minor Works,2026-05-13T10:00:00.000,760.5,Echo Services,2026-05-13,76050,ECHO SERVICES,general_procurement
+P02.xlsx:13,P02.xlsx,13,Environment,Supplies & Services,Minor Works,2026-05-13T10:00:00.000,760.5,Echo Services,2026-05-13,76050,ECHO SERVICES,general_procurement
+P02.xlsx:14,P02.xlsx,14,Environment,Supplies & Services,Minor Works,2026-05-15T10:00:00.000,760.5,Echo Services,2026-05-15,76050,ECHO SERVICES,general_procurement

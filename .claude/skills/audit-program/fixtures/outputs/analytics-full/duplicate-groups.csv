@@ -1,0 +1,3 @@
+group_id,tier,supplier,supplier_norm,amount,n_rows,distinct_timestamps,first_date,last_date,gbp_beyond_first,tag,services,narratives,row_ids
+1,different_time,Delta Supplies,DELTA SUPPLIES,2400.0,2,2,2026-05-12,2026-05-14,2400.0,general_procurement,Environment,Minor Works,P02.xlsx:9;P02.xlsx:10
+2,different_time,Echo Services,ECHO SERVICES,760.5,3,2,2026-05-13,2026-05-15,1521.0,general_procurement,Environment,Minor Works,P02.xlsx:11;P02.xlsx:12;P02.xlsx:13

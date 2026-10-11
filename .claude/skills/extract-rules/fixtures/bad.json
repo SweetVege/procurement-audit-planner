@@ -1,0 +1,154 @@
+{
+  "source": {
+    "file": "fixtures/mini-rules.pdf",
+    "pages": 50
+  },
+  "parameters": {
+    "THRESHOLD": {
+      "value": 214904,
+      "defined_in": "1.1",
+      "page": 1,
+      "description": "Procurement-legislation threshold; named, not printed",
+      "verbatim_quote": "“Threshold” refers to the relevant financial threshold published on the Procurement intranet page."
+    }
+  },
+  "rules": [
+    {
+      "rule_id": "CPR-01",
+      "clause": "2.1",
+      "page": 1,
+      "type": "procedure",
+      "scope": [
+        "all"
+      ],
+      "condition": "contract above £1,000 and less than £25,000",
+      "threshold_low": 1000,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": 30000,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": null,
+      "threshold_text": "above £1,000 and less than £25,000",
+      "required_action": "seek at least one quote",
+      "approver": null,
+      "evidence_source": [
+        "spend_data"
+      ],
+      "verbatim_quote": "At least one quote must be sought for contracts above £1,000 and less than £25,000."
+    },
+    {
+      "rule_id": "CPR-02",
+      "clause": "2.2",
+      "page": 1,
+      "type": "anti-splitting",
+      "scope": [
+        "all"
+      ],
+      "condition": "any contract",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "do not split a contract to avoid the Rules",
+      "approver": null,
+      "evidence_source": [
+        "spend_data"
+      ],
+      "verbatim_quote": "Contracts must not be artificially split to avoid these Rules."
+    },
+    {
+      "rule_id": "CPR-04",
+      "clause": "2.9",
+      "page": 1,
+      "type": "approval",
+      "scope": [
+        "all"
+      ],
+      "condition": "contract award over £500,000",
+      "threshold_low": 500000,
+      "threshold_low_inclusive": false,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": "over £500,000",
+      "required_action": "treat the award as a Key Decision",
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "Any contract award with a value over £500,000 is a Key Decision of the Council."
+    },
+    {
+      "rule_id": "CPR-05",
+      "clause": "3.1",
+      "page": 1,
+      "type": "record",
+      "scope": [
+        "all"
+      ],
+      "condition": "all contracts",
+      "threshold_low": null,
+      "threshold_low_inclusive": null,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": null,
+      "threshold_high_param": null,
+      "threshold_text": null,
+      "required_action": "keep a register of contracts",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "A register of contracts shall be kept for three years.",
+      "confidence": "high"
+    },
+    {
+      "rule_id": "CPR-06",
+      "clause": "App A row A",
+      "page": 2,
+      "type": "procedure",
+      "scope": [
+        "all",
+        "works"
+      ],
+      "condition": "contract £25,000 or more and below the Threshold",
+      "threshold_low": 25000,
+      "threshold_low_inclusive": true,
+      "threshold_low_param": null,
+      "threshold_high": null,
+      "threshold_high_inclusive": false,
+      "threshold_high_param": "THRESHOLD_WORKS",
+      "threshold_text": "£25,000 or more and less than the Threshold",
+      "required_action": "seek three quotes",
+      "approver": null,
+      "evidence_source": [
+        "council_records"
+      ],
+      "verbatim_quote": "£25,000 or more and less than the Threshold Three quotes must be sought."
+    }
+  ],
+  "excluded": [
+    {
+      "clause": "1.1",
+      "page": 1,
+      "reason": "Definition.\nSecond line."
+    },
+    {
+      "clause": "2.2",
+      "page": 1,
+      "reason": "Also listed as a rule"
+    }
+  ],
+  "notes": [
+    {
+      "kind": "typo",
+      "clauses": [
+        "Appendix A"
+      ],
+      "description": "No procedure is stated for contracts of £1,000 or less."
+    }
+  ]
+}

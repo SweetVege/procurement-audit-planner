@@ -1,0 +1,57 @@
+{
+  "baseline": {
+    "R-01": {
+      "title": "Purchases may be divided below a value band",
+      "description": "The Rules prohibit artificial splitting [rule:CPR-02].",
+      "likelihood_score": 3,
+      "likelihood_justification": "Present in one test: {{$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows}} windows [metric:$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows].",
+      "likelihood_rubric_row": "L3",
+      "likelihood_signals": [
+        "$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows"
+      ],
+      "repeat_finding": null,
+      "impact_score": 3,
+      "impact_category": "Compliance",
+      "impact_justification": "Reasonable possibility of challenge [history:IMP-03].",
+      "evidence": [
+        "Anti-splitting rule [rule:CPR-02]."
+      ],
+      "proposed_focus": "Test the flagged windows against quotation records."
+    },
+    "R-02": {
+      "title": "Repeated payments of the same amount",
+      "description": "The same amount paid more than once to one supplier within days is an indicator to check [metric:$.tests.duplicates.per_tier.different_time.headline_general_procurement.groups].",
+      "likelihood_score": 3,
+      "likelihood_justification": "Present in one test: {{$.tests.duplicates.per_tier.different_time.headline_general_procurement.groups}} groups [metric:$.tests.duplicates.per_tier.different_time.headline_general_procurement.groups].",
+      "likelihood_rubric_row": "L3",
+      "likelihood_signals": [
+        "$.tests.duplicates.per_tier.different_time.headline_general_procurement.groups"
+      ],
+      "repeat_finding": null,
+      "impact_score": 2,
+      "impact_category": "Reputation",
+      "impact_justification": "A complaint could be upheld [history:IMP-04].",
+      "evidence": [
+        "Groups: {{$.tests.duplicates.per_tier.different_time.headline_general_procurement.groups}} [metric:$.tests.duplicates.per_tier.different_time.headline_general_procurement.groups]."
+      ],
+      "proposed_focus": "Confirm each repeated payment was due."
+    }
+  },
+  "baseline_dropped": [],
+  "last_build": {
+    "mode": "revision",
+    "revision": 1,
+    "built_at": "2026-10-10 18:39",
+    "risks": [
+      "R-01",
+      "R-02"
+    ],
+    "decisions": {
+      "R-01": "approve",
+      "R-02": "approve"
+    },
+    "undecided": [],
+    "dropped": [],
+    "fallback_scale": false
+  }
+}

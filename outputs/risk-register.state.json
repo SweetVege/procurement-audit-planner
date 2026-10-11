@@ -1,0 +1,271 @@
+{
+  "baseline": {
+    "R-01": {
+      "title": "Purchases divided or repeated so that the requirements of a higher value band do not apply",
+      "description": "One requirement could be met through several smaller purchases, or through repeat purchases of a similar type, so that each stays under a value band at which the Rules require quotations, a notice, a tender or a Key Decision. The Rules say a contract must not be artificially split or disaggregated [rule:CPR-15], require advice to be sought where repeat purchases are envisaged [rule:CPR-16], and require value to be estimated over the full potential duration of the contract [rule:CPR-14].",
+      "likelihood_score": 3,
+      "likelihood_justification": "Rubric row L3: the pattern is present in one test. The split-purchase test found {{$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows}} general-procurement suppliers [metric:$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows] with two or more payments inside a {{$.tests.split_purchases.parameters.window_days}}-day window, each under {{$.tests.split_purchases.per_threshold['25000.00'].threshold}} and together reaching it, and {{$.tests.split_purchases.per_threshold['500000.00'].headline_general_procurement.windows}} at the {{$.tests.split_purchases.per_threshold['500000.00'].threshold}} band [metric:$.tests.split_purchases.per_threshold['500000.00'].headline_general_procurement.windows]. Threshold clustering is not a second signal: its band-to-comparator ratio at {{$.tests.threshold_clustering.per_threshold['25000.00'].threshold}} is {{$.tests.threshold_clustering.per_threshold['25000.00'].band_to_comparator_ratio}}, which is not above one [metric:$.tests.threshold_clustering.per_threshold['25000.00'].band_to_comparator_ratio]. No point is added for a repeat finding: the one audit of this subject on record, Contract Letting, carries a positive opinion [history:AUD-01].",
+      "likelihood_rubric_row": "L3",
+      "likelihood_signals": [
+        "$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows",
+        "$.tests.split_purchases.per_threshold['500000.00'].headline_general_procurement.windows"
+      ],
+      "repeat_finding": null,
+      "impact_score": 3,
+      "impact_category": "Compliance (litigation, regulatory, contract)",
+      "impact_justification": "If one requirement had been divided across purchases, a contract would have been let without the invited quotations and notice its full value calls for [rule:CPR-57] [rule:CPR-59], and a supplier who was given no opportunity to quote could contest it. That fits the Compliance column at Medium: a reasonable possibility of successful legal challenge or of regulatory interest [history:IMP-03]. The combined value of the windows is spend, not a loss, so the financial column is not used.",
+      "evidence": [
+        "Split-purchase test at the {{$.tests.split_purchases.per_threshold['25000.00'].threshold}} band: {{$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows}} general-procurement windows with a combined value of {{$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.gbp}} [metric:$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.gbp]. The {{$.tests.split_purchases.per_threshold['25000.00'].placement_reported_separately.windows}} placement-tagged windows are reported separately and are not counted, because periodic care fees recur [metric:$.tests.split_purchases.per_threshold['25000.00'].placement_reported_separately.windows].",
+        "Split-purchase test at the {{$.tests.split_purchases.per_threshold['500000.00'].threshold}} band, above which an award is a Key Decision [rule:CPR-04]: {{$.tests.split_purchases.per_threshold['500000.00'].headline_general_procurement.windows}} general-procurement windows with a combined value of {{$.tests.split_purchases.per_threshold['500000.00'].headline_general_procurement.gbp}} [metric:$.tests.split_purchases.per_threshold['500000.00'].headline_general_procurement.gbp].",
+        "Evidence against clustering: {{$.tests.threshold_clustering.per_threshold['25000.00'].band_count}} payments sit in the band just under {{$.tests.threshold_clustering.per_threshold['25000.00'].threshold}} against {{$.tests.threshold_clustering.per_threshold['25000.00'].comparator_count}} in the equal band just above it [metric:$.tests.threshold_clustering.per_threshold['25000.00'].band_count], and {{$.tests.threshold_clustering.per_threshold['500000.00'].band_count}} sit in the band just under {{$.tests.threshold_clustering.per_threshold['500000.00'].threshold}} [metric:$.tests.threshold_clustering.per_threshold['500000.00'].band_count].",
+        "Caveat carried from the test: payments of {{$.threshold_source.publication_floor.value}} or less are not published, so the counts are lower bounds [metric:$.tests.split_purchases.parameters.lower_bound_note]. The date is a payment-run timestamp, not an order or invoice date. Several payments to one supplier inside a window can be instalments or separate orders under one properly let contract, so each window is a prompt to look at the orders behind it and nothing more.",
+        "Not used as a signal: the {{$.tests.split_purchases.per_threshold['1000.00'].threshold}} band of either test. With a publication floor of {{$.threshold_source.publication_floor.value}} nearly every pair of payments reaches that band [metric:$.tests.split_purchases.per_threshold['1000.00'].threshold_to_floor_ratio].",
+        "Not tested: windows measured against the procurement-legislation Threshold, because that figure is not in rules.json [metric:$.skipped]; see R-06.",
+        "Context: Contract Letting was audited and given a positive opinion [history:AUD-01]; the papers print no findings for it. The Risk Management Strategy lists competition and markets as a source of risk [history:THM-03]."
+      ],
+      "proposed_focus": "For the general-procurement windows in the split-purchase list, obtain the orders, quotations and contract behind the payments and establish whether they belong to one requirement or to several. Start with the windows at the {{$.tests.split_purchases.per_threshold['500000.00'].threshold}} band, then the largest at the {{$.tests.split_purchases.per_threshold['25000.00'].threshold}} band. Ask how services add up repeat purchases when they estimate contract value [rule:CPR-16]."
+    },
+    "R-02": {
+      "title": "Spend at or above the publication value with no matching contract notice",
+      "description": "A supplier could be paid amounts that, over a year, reach the value at which the Rules require at least three invited quotations [rule:CPR-57] [rule:CPR-59] and a published contract notice [rule:CPR-58] [rule:CPR-60], without that competition or notice having taken place.",
+      "likelihood_score": 3,
+      "likelihood_justification": "Rubric row L3: the pattern is present in one test. {{$.tests.off_contract.headline_general_procurement.suppliers}} general-procurement suppliers whose annualised estimate is at or above {{$.tests.off_contract.parameters.publication_threshold}} have no exact name match to a supplier on a Contracts Finder notice active in the spend window [metric:$.tests.off_contract.headline_general_procurement.suppliers]. The high-value supplier count [metric:$.tests.high_value_suppliers.headline_general_procurement.suppliers] is the population this test starts from, not a pattern in its own right, so it is not counted as a second test. No point is added for a repeat finding: Contract Letting carries a positive opinion [history:AUD-01].",
+      "likelihood_rubric_row": "L3",
+      "likelihood_signals": [
+        "$.tests.off_contract.headline_general_procurement.suppliers"
+      ],
+      "repeat_finding": null,
+      "impact_score": 3,
+      "impact_category": "Compliance (litigation, regulatory, contract)",
+      "impact_justification": "If a contract of this value had been let with no invitation to quote and no notice, a supplier who had no opportunity to bid could contest it, and the duty to publish the notice would be unmet [rule:CPR-58]. That fits the Compliance column at Medium: a reasonable possibility of successful legal challenge or of regulatory interest [history:IMP-03]. Spend for which no notice was found is not a loss, so the financial column is not used.",
+      "evidence": [
+        "Off-contract test: of {{$.tests.off_contract.suppliers_classed}} suppliers at or above the publication value, {{$.tests.off_contract.by_match_class.exact.suppliers}} match a notice exactly and {{$.tests.off_contract.unmatched.suppliers}} do not [metric:$.tests.off_contract.unmatched.suppliers]. The general-procurement headline is {{$.tests.off_contract.headline_general_procurement.suppliers}} suppliers paid {{$.tests.off_contract.headline_general_procurement.gbp}} in the window [metric:$.tests.off_contract.headline_general_procurement.gbp], of which {{$.tests.off_contract.headline_general_procurement.of_which_near_match_candidates}} are near-name matches for the auditor to confirm.",
+        "Reported separately and not counted: {{$.tests.off_contract.placement_reported_separately.suppliers}} placement-tagged suppliers [metric:$.tests.off_contract.placement_reported_separately.suppliers]. Appendix C excludes individual placements and packages from competition [rule:CPR-71]; see R-08.",
+        "Caveat carried from the test: 'no notice found' is an indicator to check against the council's own contract register and nothing more. The export holds published notices, not a register; a contract awarded before the period it covers, advertised only elsewhere, called off under another buyer's framework, or exempt, has no notice in it, and only a small share of high-value suppliers is expected to match by name [metric:$.tests.off_contract.caveat]. No contract register was available to the test [metric:$.contracts.register_note].",
+        "Caveat: the annualised estimate scales {{$.population.months_covered}} months of spend to a year and may not be typical [metric:$.tests.high_value_suppliers.parameters.annualised_estimate]. Matching is by name only, because the spend data carries no company number [metric:$.tests.off_contract.parameters.companies_house_key]. The test says nothing about suppliers under the publication value, who would never appear on Contracts Finder.",
+        "Context: Contract Letting was audited and given a positive opinion [history:AUD-01]; the papers print no findings for it."
+      ],
+      "proposed_focus": "Reconcile the general-procurement suppliers in the list to the council's contract register [rule:CPR-08], taking the near-name matches first. For those with no register entry, ask for the quotation or tender record and the notice, or for the waiver or Appendix C approval that was relied on."
+    },
+    "R-03": {
+      "title": "Spend continuing after the matching contract notice has ended",
+      "description": "Purchasing from a supplier could continue after the contract's end date without an extension that the contract provides for having been approved by the S151 Officer [rule:CPR-68], and without a new competition.",
+      "likelihood_score": 3,
+      "likelihood_justification": "Rubric row L3: the pattern is present in one test. {{$.tests.expired_notice_spend.count}} suppliers at or above the publication value were paid in the spend window although every notice matched to them ended before the window opened [metric:$.tests.expired_notice_spend.count]. No other test bears on extensions, and no audit of this subject with an adverse opinion is recorded; the extension rule is [rule:CPR-68].",
+      "likelihood_rubric_row": "L3",
+      "likelihood_signals": [
+        "$.tests.expired_notice_spend.count"
+      ],
+      "repeat_finding": null,
+      "impact_score": 3,
+      "impact_category": "Compliance (litigation, regulatory, contract)",
+      "impact_justification": "If spend continued with no contract in force and no approved extension [rule:CPR-68], it would be spend that had not been through the competition its value calls for, which another supplier could contest. That fits the Compliance column at Medium: a reasonable possibility of successful legal challenge or of regulatory interest [history:IMP-03]. The amounts paid are spend, not a loss, so the financial column is not used.",
+      "evidence": [
+        "Expired-notice test: {{$.tests.expired_notice_spend.count}} suppliers, paid {{$.tests.expired_notice_spend.gbp}} in the window, an annualised estimate of {{$.tests.expired_notice_spend.annualised_estimate_gbp}} [metric:$.tests.expired_notice_spend.gbp]. All of them carry the general-procurement tag [metric:$.tests.expired_notice_spend.by_tag.general_procurement.suppliers].",
+        "The window opened on {{$.tests.expired_notice_spend.parameters.window_start}}; a notice counts as ended if its end date falls before that date [metric:$.tests.expired_notice_spend.parameters.window_start].",
+        "Caveat carried from the test: a newer contract may exist with no notice on Contracts Finder, and an extension may have been approved under Appendix C without a new notice. The export holds published notices, not a contract register, so each case is an indicator to check against the council's register [metric:$.tests.expired_notice_spend.caveat].",
+        "Caveat: the match is by exact normalised name only, and the annualised estimate scales {{$.population.months_covered}} months of spend to a year [metric:$.tests.expired_notice_spend.parameters.match]."
+      ],
+      "proposed_focus": "For each supplier in the expired-notice list, ask for the contract currently in force: a later award, or the extension clause relied on together with the S151 Officer's approval of the extension [rule:CPR-68]."
+    },
+    "R-05": {
+      "title": "Repeated payments of the same amount to the same supplier",
+      "description": "An invoice could be paid more than once. No clause of the Contract Rules sets a duplicate-payment test [metric:$.tests.duplicates.rule_note]: this is a payment-control indicator. The nearest rule is that written evidence must be held for every purchase [rule:CPR-35], which is what a repeated payment would be checked against.",
+      "likelihood_score": 3,
+      "likelihood_justification": "Rubric row L3: the pattern is present in one test. The duplicates test found {{$.tests.duplicates.per_tier.different_time.headline_general_procurement.groups}} general-procurement groups of same-supplier, same-amount payments made at different times within {{$.tests.duplicates.parameters.days}} days [metric:$.tests.duplicates.per_tier.different_time.headline_general_procurement.groups], and {{$.tests.duplicates.per_tier.same_timestamp.headline_general_procurement.groups}} groups sharing one timestamp [metric:$.tests.duplicates.per_tier.same_timestamp.headline_general_procurement.groups]. Both tiers belong to the same test. No point is added for a repeat finding: Accounts Payable carries a positive opinion [history:AUD-15].",
+      "likelihood_rubric_row": "L3",
+      "likelihood_signals": [
+        "$.tests.duplicates.per_tier.different_time.headline_general_procurement.groups",
+        "$.tests.duplicates.per_tier.same_timestamp.headline_general_procurement.groups"
+      ],
+      "repeat_finding": null,
+      "impact_score": 3,
+      "impact_category": "Reputation",
+      "impact_justification": "If payments had been repeated in error on the scale the indicator allows, criticism of payment controls by an external agency such as the external auditor could be expected: the Reputation column at Medium [history:IMP-03]. The amount paid beyond the first payment in the general-procurement groups at different times, {{$.tests.duplicates.per_tier.different_time.headline_general_procurement.gbp_beyond_first}}, is an upper indicator and not a loss [metric:$.tests.duplicates.per_tier.different_time.headline_general_procurement.gbp_beyond_first]. The financial column is not used, because the ranges printed for its adjoining levels overlap [history:DIS-07].",
+      "evidence": [
+        "Different-time tier: {{$.tests.duplicates.per_tier.different_time.headline_general_procurement.groups}} general-procurement groups covering {{$.tests.duplicates.per_tier.different_time.headline_general_procurement.rows}} payments [metric:$.tests.duplicates.per_tier.different_time.headline_general_procurement.rows].",
+        "Same-timestamp tier: {{$.tests.duplicates.per_tier.same_timestamp.headline_general_procurement.groups}} general-procurement groups covering {{$.tests.duplicates.per_tier.same_timestamp.headline_general_procurement.rows}} payments, with {{$.tests.duplicates.per_tier.same_timestamp.headline_general_procurement.gbp_beyond_first}} beyond the first payment in each group [metric:$.tests.duplicates.per_tier.same_timestamp.headline_general_procurement.gbp_beyond_first]. Because the date is a payment-run timestamp, a same-timestamp group may be several lines of one run.",
+        "Reported separately and not counted: {{$.tests.duplicates.per_tier.different_time.placement_reported_separately.groups}} placement-tagged groups at different times and {{$.tests.duplicates.per_tier.same_timestamp.placement_reported_separately.groups}} sharing a timestamp [metric:$.tests.duplicates.per_tier.different_time.placement_reported_separately.groups]. Periodic care fees of a fixed amount recur.",
+        "Caveat: an identical amount paid twice to one supplier can equally be two periodic charges, two orders at a list price, or one invoice per site. The published data carries no invoice number, so the test cannot tell these apart; and payments of {{$.threshold_source.publication_floor.value}} or less are not published, so the counts are lower bounds [metric:$.threshold_source.publication_floor.value].",
+        "Context: Accounts Payable was audited and given a positive opinion [history:AUD-15]; the papers print no findings for it."
+      ],
+      "proposed_focus": "For the general-procurement groups at different times, match each payment to its invoice number and order to establish whether the payments are for separate supplies. Then ask what duplicate-invoice check the payment system applies and whether it was in operation throughout the period."
+    },
+    "R-06": {
+      "title": "Contracts above the procurement-legislation Threshold handled under a lower value band",
+      "description": "A contract whose value is above the Threshold set by the Procurement Legislation could be let, or repeat purchases could add up to that value, without the tender procedure and advert the Rules require above it [rule:CPR-17] [rule:CPR-63] [rule:CPR-64] [rule:CPR-16]. The Threshold figures are not printed in the Rules, which refer the reader to the council's intranet.",
+      "likelihood_score": 2,
+      "likelihood_justification": "Rubric row L2: the public data cannot speak to this risk. Every tier of the clustering, split-purchase and high-value supplier tests that depends on the Threshold was skipped [metric:$.skipped], for the reason the analysis gives: {{$.skipped[0].reason}}. The rules that turn on the Threshold include [rule:CPR-16] and [rule:CPR-63].",
+      "likelihood_rubric_row": "L2",
+      "likelihood_signals": [],
+      "repeat_finding": null,
+      "impact_score": 4,
+      "impact_category": "Compliance (litigation, regulatory, contract)",
+      "impact_justification": "Above the Threshold the Rules apply the procedures of the Procurement Legislation itself [rule:CPR-63], so a contract let outside them would be exposed to challenge under that legislation and not only under the council's own Rules. That fits the Compliance column at Major: a high possibility of legal challenge or of regulatory intervention [history:IMP-02].",
+      "evidence": [
+        "Skipped tiers: {{$.skipped[0].test}}, {{$.skipped[2].test}} and {{$.skipped[4].test}}, each at the tiers {{$.skipped[0].tier}} and {{$.skipped[1].tier}} [metric:$.skipped].",
+        "All four Threshold parameters in rules.json are null [metric:$.threshold_source.null_parameters]. rules.json records this as a gap: the figures that drive most value bands are not printed in the document.",
+        "Rules that cannot be tested until the figures are supplied include the repeat-purchase rule [rule:CPR-16], the tender and advert requirements above the Threshold [rule:CPR-17] [rule:CPR-63] [rule:CPR-64], the quotation band that ends at the Threshold [rule:CPR-57] and the approval bands that start or end at it [rule:CPR-52] [rule:CPR-53].",
+        "rules.json also records that a value exactly equal to the Threshold falls in no band of Appendix B, and that the Rules count four categories of Threshold in one clause and three in another.",
+        "The tests that did run used only the bands printed in the Rules [metric:$.threshold_source.rule_types_used]; their results are in R-01 and R-02."
+      ],
+      "proposed_focus": "Supply the Threshold figures in force for the period so that the three tests can be re-run at those tiers. In fieldwork, take the largest general-procurement suppliers by annualised estimate and trace each to its tender record and advert [rule:CPR-63] [rule:CPR-64]."
+    },
+    "R-04": {
+      "title": "Spend running ahead of the awarded contract value",
+      "description": "Spend under a contract could grow beyond the value awarded without the variation having been approved as the Rules require: by the Monitoring Officer and S151 Officer [rule:CPR-69], or by the relevant board for larger variations [rule:CPR-70].",
+      "likelihood_score": 3,
+      "likelihood_justification": "Rubric row L3: the pattern is present in one test. Of the {{$.tests.spend_vs_award.suppliers_compared}} suppliers that could be compared with a single active award, {{$.tests.spend_vs_award.count}} have an annualised estimate of at least {{$.tests.spend_vs_award.parameters.ratio_minimum}} times the yearly rate of the award [metric:$.tests.spend_vs_award.count]. No other test bears on variations, and no audit of this subject with an adverse opinion is recorded; the variation rule is [rule:CPR-69].",
+      "likelihood_rubric_row": "L3",
+      "likelihood_signals": [
+        "$.tests.spend_vs_award.count"
+      ],
+      "repeat_finding": null,
+      "impact_score": 2,
+      "impact_category": "Compliance (litigation, regulatory, contract)",
+      "impact_justification": "In these cases a contract was awarded and is still in force, so if spend had outrun the award the consequence would be a variation without its approval and report [rule:CPR-69], not an award made without competition. That fits the Compliance column at Minor: a low possibility of legal challenge or of regulatory interest [history:IMP-04]. Award values may be estimates or maxima, so the excess over the award is not a loss and the financial column is not used.",
+      "evidence": [
+        "Spend-versus-award test: {{$.tests.spend_vs_award.count}} of {{$.tests.spend_vs_award.suppliers_compared}} comparable suppliers, paid {{$.tests.spend_vs_award.gbp}} in the window [metric:$.tests.spend_vs_award.gbp]. All of them carry the general-procurement tag [metric:$.tests.spend_vs_award.by_tag.general_procurement.suppliers].",
+        "The comparison is narrow by design: it covers only suppliers with an exact match to exactly one active single-supplier notice whose awarded value is above zero [metric:$.tests.spend_vs_award.suppliers_eligible].",
+        "Caveat carried from the test: award values may be estimates or maxima, and {{$.population.months_covered}} months of spend may not be typical of the year; payments in the window may also relate to work outside the matched contract [metric:$.tests.spend_vs_award.caveat].",
+        "rules.json records as a drafting point that the variation row of Appendix C asks for 'an extension report', wording that fits the extension row; the rule is recorded as printed [rule:CPR-70]."
+      ],
+      "proposed_focus": "For each supplier in the spend-versus-award list, compare spend to date with the contract value on the council's register and ask for the approved variation where spend exceeds it [rule:CPR-69] [rule:CPR-70]. Confirm first whether the published award value was an estimate, a maximum or an annual figure."
+    },
+    "R-07": {
+      "title": "Competition waived or excepted without the required grounds, approval or record",
+      "description": "An exception or waiver could be relied on outside the grounds the Rules allow [rule:CPR-23], sought after the event or approved by someone other than the officers named [rule:CPR-24] [rule:CPR-25] [rule:CPR-26] [rule:CPR-27], or left without the documentation and exception report the Rules require [rule:CPR-28] [rule:CPR-29] [rule:CPR-30].",
+      "likelihood_score": 2,
+      "likelihood_justification": "Rubric row L2: the public data cannot speak to this risk and no test exists. A waiver leaves no trace in published payments or notices, so the waiver rules [rule:CPR-23] [rule:CPR-24] can be tested only from the council's own exception reports. The one audit on record that covers letting contracts carries a positive opinion, and the papers print no findings for it [history:AUD-01].",
+      "likelihood_rubric_row": "L2",
+      "likelihood_signals": [],
+      "repeat_finding": null,
+      "impact_score": 3,
+      "impact_category": "Compliance (litigation, regulatory, contract)",
+      "impact_justification": "If a waiver had been relied on without the grounds or approval the Rules require [rule:CPR-23], the result would be a contract let without competition, which another supplier could contest. That fits the Compliance column at Medium: a reasonable possibility of successful legal challenge or of regulatory interest [history:IMP-03].",
+      "evidence": [
+        "No test in analytics.json bears on waivers; the rule types the analysis drew thresholds from are listed at [metric:$.threshold_source.rule_types_used], and a waiver band was used only to locate a value boundary.",
+        "rules.json records drafting points in the waiver clauses: words appear to be missing from the clause on exceptions in the middle value band, and its cross-reference on urgency may point to the wrong clause [rule:CPR-26].",
+        "rules.json records that the exception route is stated only above the lower value boundary [rule:CPR-23]; none is stated for the band in which a single quote is required [rule:CPR-56].",
+        "Link to R-02: an approved waiver is one explanation for a high-value supplier with no matching notice [metric:$.tests.off_contract.headline_general_procurement.suppliers].",
+        "Context: the Risk Management Strategy lists competition and markets as a source of risk [history:THM-03]."
+      ],
+      "proposed_focus": "Obtain the register of exceptions and waivers for the period. For a sample, confirm the ground relied on, that approval was given in advance by the officers named for that value band, and that an exception report went to the relevant board [rule:CPR-29]. Compare the register with the unmatched suppliers under R-02."
+    },
+    "R-08": {
+      "title": "Appendix C exclusions from competition applied without the required approval or record",
+      "description": "A contract could be treated as excluded from competition without the prior written approval the Rules require [rule:CPR-65] [rule:CPR-67], without the Provider Selection Regime process being followed and recorded [rule:CPR-66], without the reasons for the choice of provider being recorded on the individual's case notes for a placement [rule:CPR-71], or without board approval where the value is above the Threshold [rule:CPR-72].",
+      "likelihood_score": 2,
+      "likelihood_justification": "Rubric row L2: the public data cannot speak to this risk. Patterns that appear only under the placement tag are not signals: {{$.tests.split_purchases.per_threshold['25000.00'].placement_reported_separately.windows}} split-purchase windows [metric:$.tests.split_purchases.per_threshold['25000.00'].placement_reported_separately.windows] and {{$.tests.off_contract.placement_reported_separately.suppliers}} suppliers with no matching notice [metric:$.tests.off_contract.placement_reported_separately.suppliers] carry that tag, but periodic care fees recur and Appendix C excludes individual placements from competition [rule:CPR-71]. Whether an approval was given or a reason recorded cannot be seen in payments or notices. The audit on record that covers buying care carries a positive opinion [history:AUD-18].",
+      "likelihood_rubric_row": "L2",
+      "likelihood_signals": [],
+      "repeat_finding": null,
+      "impact_score": 3,
+      "impact_category": "Compliance (litigation, regulatory, contract)",
+      "impact_justification": "If an exclusion had been relied on without the approval the Rules require [rule:CPR-65], the result would be a contract awarded directly with nothing on file to show the exclusion applied, which another provider could contest. That fits the Compliance column at Medium: a reasonable possibility of successful legal challenge or of regulatory interest [history:IMP-03].",
+      "evidence": [
+        "Placement-tagged spend in the population: {{$.population.tags.care_or_education_placement.rows}} payments to {{$.population.tags.care_or_education_placement.suppliers}} suppliers, {{$.population.tags.care_or_education_placement.gbp}} in the window [metric:$.population.tags.care_or_education_placement.gbp]. This is the size of the area the exclusion covers, not an indicator.",
+        "Placement-tagged results reported separately by the tests: {{$.tests.split_purchases.per_threshold['25000.00'].placement_reported_separately.windows}} split-purchase windows, {{$.tests.off_contract.placement_reported_separately.suppliers}} high-value suppliers with no matching notice and {{$.tests.duplicates.per_tier.different_time.placement_reported_separately.groups}} same-amount groups at different times [metric:$.tests.duplicates.per_tier.different_time.placement_reported_separately.groups]. Periodic fees for an individual's care are expected to produce all three.",
+        "Context: Purchase of Residential and Nursing Care Provision was audited and given a positive opinion [history:AUD-18]. Personal Budgets (Direct Payments) carries an adverse opinion [history:AUD-16]; it is a different subject from letting contracts under Appendix C, so no point is added.",
+        "rules.json records drafting points in Appendix C: words appear to be missing from the row on purchasing schemes [rule:CPR-67], and the extension row names an approver but no report [rule:CPR-68].",
+        "The extension and variation rows of Appendix C have their own tests and are rated separately as R-03 and R-04."
+      ],
+      "proposed_focus": "For a sample of placement-tagged suppliers, confirm that the reasons for the choice of provider are on the individual's case notes [rule:CPR-71]. For a sample of awards under a purchasing scheme or a claimed legislative exclusion, confirm the Monitoring Officer's prior written approval [rule:CPR-65] [rule:CPR-67] and, above the Threshold, the board's approval [rule:CPR-72]."
+    },
+    "R-09": {
+      "title": "Contracts awarded without the approval their value requires",
+      "description": "A contract could be entered into without a decision or delegation that covers it [rule:CPR-02], without budget provision [rule:CPR-03], without being treated as a Key Decision where its value requires that [rule:CPR-04] [rule:CPR-54], or without the board or Executive approval set for its value band in Appendix A [rule:CPR-05] [rule:CPR-53] [rule:CPR-55].",
+      "likelihood_score": 2,
+      "likelihood_justification": "Rubric row L2: the public data cannot speak to this risk and no test exists. Payments and notices do not show who approved an award, so the approval rules [rule:CPR-04] [rule:CPR-05] can be tested only from decision records. The audit on record that covers letting contracts carries a positive opinion, and the papers print no findings for it [history:AUD-01].",
+      "likelihood_rubric_row": "L2",
+      "likelihood_signals": [],
+      "repeat_finding": null,
+      "impact_score": 2,
+      "impact_category": "Compliance (litigation, regulatory, contract)",
+      "impact_justification": "If an award had been made without the approval set for its value [rule:CPR-05], the consequence would be a decision taken outside the council's own scheme of authority, to be regularised internally, with the competition itself unaffected. That fits the Compliance column at Minor: a low possibility of legal challenge or of regulatory interest [history:IMP-04].",
+      "evidence": [
+        "No test in analytics.json bears on approvals. Approval bands were used only to locate value boundaries [metric:$.threshold_source.rule_types_used].",
+        "rules.json records that a value of exactly {{$.thresholds[2].value}} falls in no band of Appendix A, while the waiver clause includes it; analytics.json marks that boundary as printed inconsistently [metric:$.thresholds[2].inclusivity_conflict].",
+        "rules.json records a contradiction at the top band of Appendix A: the heading reads {{$.thresholds[3].value}} 'or more' and the text beside it reads 'in excess of' that figure [rule:CPR-55]. It also records that the cross-references to the Call-In and Forward Plan parts are left blank in the Key Decision row [rule:CPR-54].",
+        "Link to R-01: the split-purchase windows at the {{$.tests.split_purchases.per_threshold['500000.00'].threshold}} band sit at the value above which an award is a Key Decision [metric:$.tests.split_purchases.per_threshold['500000.00'].headline_general_procurement.windows].",
+        "The Risk Management Strategy lists compliance, including contract compliance, as an impact category [history:THM-04]."
+      ],
+      "proposed_focus": "For a sample of awards in each Appendix A band, trace the approval: the Service Director's delegation, the board report, the Key Decision entry and, at the top band, the Executive's approval [rule:CPR-52] [rule:CPR-53] [rule:CPR-54] [rule:CPR-55]. Ask how awards at the exact boundary values are treated."
+    },
+    "R-10": {
+      "title": "Contracts not in the required written form or without the required terms and safeguards",
+      "description": "A contract could be entered into without being in writing in an approved form [rule:CPR-36], without the standard clauses and minimum terms [rule:CPR-39] [rule:CPR-41], without a Data Protection Impact Assessment [rule:CPR-42], without the risk assessment, insurance or performance-bond consideration the Rules require [rule:CPR-44] [rule:CPR-46] [rule:CPR-47], or without being sealed where its value requires it [rule:CPR-50].",
+      "likelihood_score": 2,
+      "likelihood_justification": "Rubric row L2: the public data cannot speak to this risk and no test exists. The form and content of a contract cannot be seen in payments or notices, so the contract-form rules [rule:CPR-36] [rule:CPR-41] can be tested only from contract files. The Risk Management Strategy lists contracts and partnerships as a source of risk [history:THM-01]; no audit of contract documentation is recorded.",
+      "likelihood_rubric_row": "L2",
+      "likelihood_signals": [],
+      "repeat_finding": null,
+      "impact_score": 2,
+      "impact_category": "Compliance (litigation, regulatory, contract)",
+      "impact_justification": "If a contract lacked the written form, terms or insurance the Rules require [rule:CPR-41], the council's position in any later dispute with the contractor would be weaker, case by case. That fits the Compliance column, which covers contract, at Minor: a low possibility of legal challenge or of regulatory interest [history:IMP-04].",
+      "evidence": [
+        "No test in analytics.json bears on contract form [metric:$.threshold_source.rule_types_used].",
+        "rules.json records a gap: no award procedure, and so no requirement for writing, is stated for the smallest purchases, because Appendix B starts above {{$.thresholds[0].value}} [rule:CPR-36] [rule:CPR-56].",
+        "rules.json records drafting points: the sub-clause on the contractor's tax status under the insurance and risk clause is not a complete sentence [rule:CPR-47], and one item in the list of minimum contract clauses is a free-standing requirement about specifications [rule:CPR-41].",
+        "The sealing rule turns on the Threshold [rule:CPR-50], which is not in rules.json [metric:$.threshold_source.null_parameters]; see R-06.",
+        "Context: contracts and partnerships, including procurement contract management, are listed as a source of risk [history:THM-01]."
+      ],
+      "proposed_focus": "For a sample of contracts across the value bands, inspect the contract file for a signed or sealed agreement in an approved form, the minimum clauses, evidence of insurance, the Data Protection Impact Assessment, and the bond or the written risk assessment where no bond was taken [rule:CPR-44] [rule:CPR-46]."
+    },
+    "R-11": {
+      "title": "Procurement records and published information incomplete",
+      "description": "The records the Rules require could be incomplete: published expenditure [rule:CPR-06], the published register of contracts [rule:CPR-08], monthly contract information to the relevant board [rule:CPR-09], the written report on awards above the Threshold and its retention [rule:CPR-32] [rule:CPR-33], documentation of each procurement procedure [rule:CPR-34], written evidence of each purchase [rule:CPR-35] and notification of each award to the procurement lead [rule:CPR-38].",
+      "likelihood_score": 2,
+      "likelihood_justification": "Rubric row L2: the public data cannot speak to this risk and no test exists. Features of the published spend file are cited as context only: {{$.population.excluded.redacted_supplier.rows}} rows name the supplier as 'Redacted' [metric:$.population.excluded.redacted_supplier.rows], which may be a proper use of redaction and is not a test result. Whether the internal records exist [rule:CPR-34] [rule:CPR-35] can be established only from the files. No audit of procurement records is recorded, and the papers print no findings for the audits that are [history:AUD-01].",
+      "likelihood_rubric_row": "L2",
+      "likelihood_signals": [],
+      "repeat_finding": null,
+      "impact_score": 2,
+      "impact_category": "Compliance (litigation, regulatory, contract)",
+      "impact_justification": "If records or published information were incomplete [rule:CPR-34], the council would be less able to show that an award was properly made, and a publication duty could be unmet [rule:CPR-08]; the awards themselves would be unaffected. That fits the Compliance column at Minor: a low possibility of legal challenge or of regulatory interest [history:IMP-04].",
+      "evidence": [
+        "Published spend, context only: {{$.population.excluded.redacted_supplier.rows}} rows worth {{$.population.excluded.redacted_supplier.gbp}} name the supplier as 'Redacted' and are excluded from every test [metric:$.population.excluded.redacted_supplier.gbp]; {{$.population.blank_expenditure_category_rows}} rows have a blank expenditure category [metric:$.population.blank_expenditure_category_rows]; {{$.population.rows_dated_outside_file_month.rows}} row is dated outside the month of its file [metric:$.population.rows_dated_outside_file_month.rows]. Redaction can be proper, for example for payments to individuals.",
+        "The council's contract register was not among the inputs, so no test result has been checked against it [metric:$.contracts.register_note]. This describes the inputs to this plan and says nothing about whether the register is published [rule:CPR-08].",
+        "The Contracts Finder export holds {{$.contracts.rows_for_council}} notices for the council [metric:$.contracts.rows_for_council], and only a small share of high-value suppliers is expected to match one by name [metric:$.contracts.caveat]; see R-02.",
+        "rules.json records a drafting point: the list of what must be published numbers its second and third items as if they were separate clauses [rule:CPR-08].",
+        "The papers print no findings, recommendations or agreed actions for any audit, so nothing is known from them about record-keeping; the Strategy notes the monitoring of agreed audit recommendations as an Internal Audit output [history:THM-15]."
+      ],
+      "proposed_focus": "Compare the council's published contract register with the notices on Contracts Finder and with the high-value supplier list [rule:CPR-08]. For a sample of procurements, confirm that the file documents the procedure and is retained [rule:CPR-34], and that the award was notified to the procurement lead [rule:CPR-38]. Ask what criteria govern redaction of supplier names in the published spend [rule:CPR-06]."
+    }
+  },
+  "baseline_dropped": [],
+  "last_build": {
+    "mode": "revision",
+    "revision": 2,
+    "built_at": "2026-10-10 18:31",
+    "risks": [
+      "R-01",
+      "R-02",
+      "R-03",
+      "R-05",
+      "R-06",
+      "R-04",
+      "R-07",
+      "R-08",
+      "R-09",
+      "R-10",
+      "R-11"
+    ],
+    "decisions": {
+      "R-01": "approve",
+      "R-02": "approve",
+      "R-03": "approve",
+      "R-05": "approve",
+      "R-06": "approve",
+      "R-04": "approve",
+      "R-07": "approve",
+      "R-08": "approve",
+      "R-09": "override",
+      "R-10": "reject",
+      "R-11": "approve"
+    },
+    "undecided": [],
+    "dropped": [],
+    "fallback_scale": false
+  }
+}

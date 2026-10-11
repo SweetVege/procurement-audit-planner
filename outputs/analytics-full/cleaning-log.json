@@ -1,0 +1,647 @@
+{
+ "generated_at": "2026-10-10T17:06:17",
+ "script": "scripts/clean.py",
+ "files": [
+  {
+   "file": "Over500_2026_P02_-_published.xlsx",
+   "sheet": "Data to publish",
+   "header_sheet_row": 1,
+   "rows": 2892,
+   "blank_rows_dropped": 0,
+   "date_type": "datetime",
+   "gbp": 21785916.06,
+   "blank_expenditure_category": 28
+  },
+  {
+   "file": "Over500_2026_P03_-_published.xlsx",
+   "sheet": "Data to publish",
+   "header_sheet_row": 2,
+   "rows": 3547,
+   "blank_rows_dropped": 0,
+   "date_type": "datetime",
+   "gbp": 31295535.61,
+   "blank_expenditure_category": 29
+  },
+  {
+   "file": "Over500_2026_P04_-_published.xlsx",
+   "sheet": "Data to publish",
+   "header_sheet_row": 2,
+   "rows": 4168,
+   "blank_rows_dropped": 0,
+   "date_type": "datetime",
+   "gbp": 27345802.59,
+   "blank_expenditure_category": 30
+  }
+ ],
+ "rows_raw": 10607,
+ "gbp_raw": 80427254.26,
+ "date_min": "2026-05-01",
+ "date_max": "2026-07-31",
+ "months_covered": 3,
+ "months": [
+  "2026-05",
+  "2026-06",
+  "2026-07"
+ ],
+ "distinct_timestamps": 1673,
+ "distinct_pay_dates": 73,
+ "rows_dated_outside_file_month": {
+  "rows": 1,
+  "row_ids": [
+   "Over500_2026_P02_-_published.xlsx:2887"
+  ]
+ },
+ "min_amount": 500.21,
+ "excluded": {
+  "redacted_supplier": {
+   "rows": 2015,
+   "gbp": 2746746.71,
+   "reason": "Supplier name is 'Redacted': many payees under one label, unusable in supplier-level tests",
+   "regex": "supplier == 'redacted' (case-insensitive)"
+  },
+  "pension_statutory": {
+   "rows": 12,
+   "gbp": 9235814.93,
+   "reason": "Statutory pension contributions, not procurement",
+   "regex": "Narrative ~ LGPS|PENSION|SUPERANNUATION"
+  },
+  "inter_authority": {
+   "rows": 46,
+   "gbp": 1666587.84,
+   "reason": "Payment to another public body or a joint arrangement (and narrative is not 'Private Contractors'): not a purchase from the market",
+   "regex": "(Supplier ~ \\b(?:COUNCIL|BOROUGH|COUNTY|CNCL|NHS|POLICE|FIRE AUTHORITY|FIRE AND RESCUE|HMRC|HM REVENUE|DEPARTMENT FOR|MINISTRY OF)\\b OR Narrative ~ JOINT ARRANGEMENTS) AND Narrative != 'Private Contractors'"
+  }
+ },
+ "exclusion_order": [
+  "redacted_supplier",
+  "pension_statutory",
+  "inter_authority"
+ ],
+ "inter_authority_top_suppliers": [
+  {
+   "supplier": "READING BOROUGH COUNCIL",
+   "rows": 10,
+   "gbp": 1428347.54
+  },
+  {
+   "supplier": "BERKSHIRE HEALTHCARE NHS FOUNDATION TRUST",
+   "rows": 5,
+   "gbp": 89563.31
+  },
+  {
+   "supplier": "HAMPSHIRE COUNTY COUNCIL",
+   "rows": 10,
+   "gbp": 42378.3
+  },
+  {
+   "supplier": "OXFORDSHIRE COUNTY COUNCIL",
+   "rows": 5,
+   "gbp": 40569.64
+  },
+  {
+   "supplier": "Berkshire County Sports Partnership/Get Berkshire Active",
+   "rows": 1,
+   "gbp": 15426.25
+  },
+  {
+   "supplier": "THAMES VALLEY POLICE",
+   "rows": 1,
+   "gbp": 14701.0
+  },
+  {
+   "supplier": "University Hospitals Birmingham NHS Foundation Trust (C/O Togetherness (formally Solihull Approach)",
+   "rows": 1,
+   "gbp": 9966.0
+  },
+  {
+   "supplier": "WEST BERKSHIRE COUNCIL",
+   "rows": 4,
+   "gbp": 8169.87
+  },
+  {
+   "supplier": "KENT COUNTY COUNCIL",
+   "rows": 1,
+   "gbp": 6250.0
+  },
+  {
+   "supplier": "WOKINGHAM BOROUGH COUNCIL",
+   "rows": 1,
+   "gbp": 3344.68
+  },
+  {
+   "supplier": "GREAT SHEFFORD PARISH COUNCIL",
+   "rows": 1,
+   "gbp": 2571.0
+  },
+  {
+   "supplier": "SOUTHAMPTON CITY COUNCIL",
+   "rows": 1,
+   "gbp": 1596.35
+  },
+  {
+   "supplier": "TAMESIDE  METROPOLITAN BOROUGH",
+   "rows": 2,
+   "gbp": 1323.67
+  },
+  {
+   "supplier": "Buckinghamshire Council",
+   "rows": 1,
+   "gbp": 1000.0
+  },
+  {
+   "supplier": "DEPARTMENT FOR SCIENCE, INNOVATION AND TECHNOLOGY",
+   "rows": 1,
+   "gbp": 775.23
+  },
+  {
+   "supplier": "DEVON COUNTY COUNCIL",
+   "rows": 1,
+   "gbp": 605.0
+  }
+ ],
+ "empty_normalised_names": 0,
+ "tagging_rules": {
+  "order": [
+   "care_or_education_placement",
+   "grant",
+   "agency_staff",
+   "premises",
+   "general_procurement"
+  ],
+  "care_or_education_placement": {
+   "service_startswith": [
+    "Adult Social Care",
+    "Children's Social Care",
+    "Education"
+   ],
+   "narrative_in": [
+    "adult placement allowances",
+    "allowances for provision care",
+    "direct payment",
+    "other agencies",
+    "private contractors",
+    "voluntary associations"
+   ]
+  },
+  "grant": "GRANT",
+  "agency_staff": "AGENCY & TEMPORARY STAFF",
+  "premises": "RENT|RATES|LEASE",
+  "note": "regexes are case-insensitive and applied to Narrative; first match wins"
+ },
+ "tags": {
+  "general_procurement": {
+   "rows": 2080,
+   "gbp": 28184366.48,
+   "suppliers": 509
+  },
+  "care_or_education_placement": {
+   "rows": 5885,
+   "gbp": 30705712.58,
+   "suppliers": 369
+  },
+  "grant": {
+   "rows": 339,
+   "gbp": 6033599.82,
+   "suppliers": 198
+  },
+  "agency_staff": {
+   "rows": 24,
+   "gbp": 1285541.24,
+   "suppliers": 7
+  },
+  "premises": {
+   "rows": 206,
+   "gbp": 568884.66,
+   "suppliers": 31
+  }
+ },
+ "narratives_by_tag": {
+  "general_procurement": [
+   {
+    "narrative": "Private Contractors",
+    "rows": 158,
+    "gbp": 12477783.92
+   },
+   {
+    "narrative": "Payment to contractor",
+    "rows": 209,
+    "gbp": 8692159.42
+   },
+   {
+    "narrative": "Transport Hire",
+    "rows": 596,
+    "gbp": 1574392.25
+   },
+   {
+    "narrative": "IT",
+    "rows": 93,
+    "gbp": 1461701.3
+   },
+   {
+    "narrative": "Professional Fees",
+    "rows": 133,
+    "gbp": 518928.04
+   },
+   {
+    "narrative": "Minor Works",
+    "rows": 63,
+    "gbp": 455062.35
+   },
+   {
+    "narrative": "Public Transport",
+    "rows": 39,
+    "gbp": 404799.83
+   },
+   {
+    "narrative": "Subscriptions",
+    "rows": 25,
+    "gbp": 291698.71
+   },
+   {
+    "narrative": "Corporate R&M",
+    "rows": 166,
+    "gbp": 234317.01
+   },
+   {
+    "narrative": "Grounds Maintenance",
+    "rows": 49,
+    "gbp": 184014.61
+   },
+   {
+    "narrative": "Catering",
+    "rows": 27,
+    "gbp": 176325.57
+   },
+   {
+    "narrative": "Consultants",
+    "rows": 52,
+    "gbp": 173880.04
+   },
+   {
+    "narrative": "Training",
+    "rows": 30,
+    "gbp": 168980.9
+   },
+   {
+    "narrative": "Contributions",
+    "rows": 4,
+    "gbp": 123204.45
+   },
+   {
+    "narrative": "Voluntary Associations",
+    "rows": 16,
+    "gbp": 117689.39
+   },
+   {
+    "narrative": "Cleaning",
+    "rows": 83,
+    "gbp": 104175.66
+   },
+   {
+    "narrative": "General Expenses",
+    "rows": 7,
+    "gbp": 103091.0
+   },
+   {
+    "narrative": "External audit costs",
+    "rows": 2,
+    "gbp": 84905.0
+   },
+   {
+    "narrative": "Purchase - Equipment",
+    "rows": 27,
+    "gbp": 82389.79
+   },
+   {
+    "narrative": "Project",
+    "rows": 10,
+    "gbp": 68507.71
+   },
+   {
+    "narrative": "Postage",
+    "rows": 23,
+    "gbp": 68475.96
+   },
+   {
+    "narrative": "IT Equipment",
+    "rows": 8,
+    "gbp": 58121.8
+   },
+   {
+    "narrative": "Legal Fees",
+    "rows": 17,
+    "gbp": 51163.93
+   },
+   {
+    "narrative": "Purchases Books & Publications",
+    "rows": 7,
+    "gbp": 48980.45
+   },
+   {
+    "narrative": "Licences",
+    "rows": 17,
+    "gbp": 45794.26
+   },
+   {
+    "narrative": "Direct Transport Costs",
+    "rows": 29,
+    "gbp": 43567.08
+   },
+   {
+    "narrative": "Charges",
+    "rows": 38,
+    "gbp": 42469.49
+   },
+   {
+    "narrative": "Private Contractors Additional Cost",
+    "rows": 6,
+    "gbp": 35382.99
+   },
+   {
+    "narrative": "Training Third Parties",
+    "rows": 24,
+    "gbp": 33654.15
+   },
+   {
+    "narrative": "Insurance Premiums",
+    "rows": 7,
+    "gbp": 29866.92
+   },
+   {
+    "narrative": "Telephones",
+    "rows": 10,
+    "gbp": 29264.18
+   },
+   {
+    "narrative": "Repairs - Equipment",
+    "rows": 11,
+    "gbp": 23753.68
+   },
+   {
+    "narrative": "Print & Stationery",
+    "rows": 16,
+    "gbp": 22656.4
+   },
+   {
+    "narrative": "Purchase of Equipment",
+    "rows": 2,
+    "gbp": 18403.89
+   },
+   {
+    "narrative": "Energy costs",
+    "rows": 17,
+    "gbp": 17905.88
+   },
+   {
+    "narrative": "Survey",
+    "rows": 8,
+    "gbp": 16005.0
+   },
+   {
+    "narrative": "Waste",
+    "rows": 1,
+    "gbp": 10967.77
+   },
+   {
+    "narrative": "Projects or Minor Works",
+    "rows": 3,
+    "gbp": 9666.73
+   },
+   {
+    "narrative": "Prudential AVC Teachers",
+    "rows": 3,
+    "gbp": 9364.47
+   },
+   {
+    "narrative": "Archiving internal documents",
+    "rows": 3,
+    "gbp": 9350.8
+   },
+   {
+    "narrative": "Employee Expenses",
+    "rows": 1,
+    "gbp": 8794.5
+   },
+   {
+    "narrative": "Advertising",
+    "rows": 11,
+    "gbp": 8042.21
+   },
+   {
+    "narrative": "Fixtures & Fittings",
+    "rows": 2,
+    "gbp": 5417.0
+   },
+   {
+    "narrative": "Ex-Gratia payment",
+    "rows": 1,
+    "gbp": 5000.0
+   },
+   {
+    "narrative": "Court Order Control",
+    "rows": 4,
+    "gbp": 4440.67
+   },
+   {
+    "narrative": "ICT Software Licences",
+    "rows": 1,
+    "gbp": 4237.0
+   },
+   {
+    "narrative": "Highways Drainage",
+    "rows": 1,
+    "gbp": 3950.0
+   },
+   {
+    "narrative": "Premises Insurance",
+    "rows": 1,
+    "gbp": 3696.84
+   },
+   {
+    "narrative": "Clothing",
+    "rows": 4,
+    "gbp": 3624.17
+   },
+   {
+    "narrative": "Exhibition Expenses",
+    "rows": 2,
+    "gbp": 3447.5
+   },
+   {
+    "narrative": "Storage",
+    "rows": 4,
+    "gbp": 2803.29
+   },
+   {
+    "narrative": "Repairs - Furniture",
+    "rows": 2,
+    "gbp": 1700.0
+   },
+   {
+    "narrative": "Animal welfare",
+    "rows": 2,
+    "gbp": 1674.0
+   },
+   {
+    "narrative": "Curriculum Activities",
+    "rows": 1,
+    "gbp": 1500.0
+   },
+   {
+    "narrative": "Conference provision",
+    "rows": 1,
+    "gbp": 976.0
+   },
+   {
+    "narrative": "Recruitment Advertising",
+    "rows": 1,
+    "gbp": 850.0
+   },
+   {
+    "narrative": "Supplies & Services Expenses",
+    "rows": 1,
+    "gbp": 800.0
+   },
+   {
+    "narrative": "Reimbursements",
+    "rows": 1,
+    "gbp": 590.52
+   }
+  ],
+  "care_or_education_placement": [
+   {
+    "narrative": "Private Contractors",
+    "rows": 5221,
+    "gbp": 24116033.59
+   },
+   {
+    "narrative": "Other agencies",
+    "rows": 300,
+    "gbp": 4464951.28
+   },
+   {
+    "narrative": "Voluntary Associations",
+    "rows": 318,
+    "gbp": 1990726.43
+   },
+   {
+    "narrative": "Allowances for provision care",
+    "rows": 34,
+    "gbp": 95816.92
+   },
+   {
+    "narrative": "Direct Payment",
+    "rows": 12,
+    "gbp": 38184.36
+   }
+  ],
+  "grant": [
+   {
+    "narrative": "Grants",
+    "rows": 339,
+    "gbp": 6033599.82
+   }
+  ],
+  "agency_staff": [
+   {
+    "narrative": "Agency & Temporary Staff",
+    "rows": 24,
+    "gbp": 1285541.24
+   }
+  ],
+  "premises": [
+   {
+    "narrative": "Rents",
+    "rows": 191,
+    "gbp": 518735.25
+   },
+   {
+    "narrative": "Water Rates",
+    "rows": 8,
+    "gbp": 31291.86
+   },
+   {
+    "narrative": "Lease car costs re employees",
+    "rows": 3,
+    "gbp": 16087.15
+   },
+   {
+    "narrative": "Equipment Rentals",
+    "rows": 4,
+    "gbp": 2770.4
+   }
+  ]
+ },
+ "transfer_payment_rows_kept": 46,
+ "rows_after_exclusions": 8534,
+ "gbp_after_exclusions": 66778104.78,
+ "distinct_suppliers_raw_names": 1088,
+ "distinct_suppliers_normalised": 1083,
+ "contracts": {
+  "contracts_present": true,
+  "register_present": false,
+  "warnings": [],
+  "rows_in_file": 150,
+  "organisation_names_kept": {
+   "West Berkshire Council": 115,
+   "West Berkshire": 20,
+   "WEST BERKSHIRE COUNCIL": 6
+  },
+  "organisation_names_dropped": {
+   "Ministry of Defence": 5,
+   "Westworks Procurement Ltd": 1,
+   "SOUTHAMPTON CITY COUNCIL": 1,
+   "CITY OF BRADFORD METROPOLITAN DISTRICT COUNCIL": 1,
+   "Health Education England": 1
+  },
+  "rows_dropped_other_buyers": 9,
+  "duplicate_notice_ids_removed": 0,
+  "rows_for_council": 141,
+  "blank_supplier_names_dropped": 0,
+  "notice_supplier_pairs": 210,
+  "distinct_suppliers": 142,
+  "distinct_suppliers_active": 91,
+  "pairs_with_companies_house_no": 126,
+  "active_in_window": 61,
+  "ended_before_window": 79,
+  "not_yet_started": 1,
+  "blank_end_dates": 0,
+  "zero_value_awards": 7,
+  "multi_supplier_notices": 9,
+  "rows_per_year": {
+   "2021": 7,
+   "2022": 10,
+   "2023": 39,
+   "2024": 52,
+   "2025": 28,
+   "2026": 5
+  },
+  "published_range": [
+   "2021-02-23",
+   "2026-09-09"
+  ],
+  "procedure_types": {
+   "OpenNonOJEU": 37,
+   "CallOffFromFrameworkAgreement": 30,
+   "Open": 24,
+   "Restricted": 23,
+   "CallOffFromDynamicPurchasingSystem": 9,
+   "CompetitiveQuotationNonOJEU": 8,
+   "OpenOJEU": 3,
+   "Other": 2,
+   "Other Request for Quotation (closed procedure)": 1,
+   "Negotiated": 1,
+   "NotApplicable": 1,
+   "Other Request for quotation (under 50k)": 1,
+   "Other Direct Award": 1
+  },
+  "spend_window": [
+   "2026-05-01",
+   "2026-07-31"
+  ],
+  "active_definition": "contract end on or after the spend window start (blank = active) and contract start on or before the window end",
+  "notes": [
+   "the first and/or last publication year is thin; these may be part-years"
+  ]
+ }
+}

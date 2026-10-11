@@ -1,0 +1,71 @@
+{
+  "method": {
+    "conflicts": [
+      {
+        "discrepancy": "DIS-01",
+        "used": "Medium = 3, as the matrix and table print.",
+        "not_used": "'Medium (2)' in the text.",
+        "effect": "None on the scores below; the matrix axis decides the label."
+      },
+      {
+        "discrepancy": "DIS-02",
+        "used": "The band table (register entry at Extreme).",
+        "not_used": "'Score 9 or above'.",
+        "effect": "Does not change any score; it would only change which risks the council itself escalates."
+      }
+    ]
+  },
+  "risks": [
+    {
+      "risk_id": "R-01",
+      "title": "Purchases may be split below the quotation threshold",
+      "description": "The Rules prohibit artificial splitting [rule:CPR-01]. Payment patterns consistent with it are an indicator to investigate.",
+      "likelihood": {
+        "score": 4,
+        "rubric_row": "L3",
+        "signals": [
+          "$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows"
+        ],
+        "repeat_finding": {
+          "audit": "AUD-02"
+        },
+        "justification": "One test shows the pattern in general procurement: {{$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows}} supplier windows totalling {{$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.gbp}} cross {{$.threshold_source.publication_threshold.value}} [metric:$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows]. A related area drew an adverse opinion [history:AUD-02], so one point is added."
+      },
+      "impact": {
+        "score": 3,
+        "category": "Compliance (litigation, regulatory, contract)",
+        "justification": "A reasonable possibility of challenge if aggregation rules were not applied [history:IMP-03] [rule:CPR-02]."
+      },
+      "evidence": [
+        "Anti-splitting rule [rule:CPR-01].",
+        "Split-purchase windows: {{$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows}} [metric:$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows]."
+      ],
+      "proposed_focus": "Test the flagged windows against quotation records."
+    },
+    {
+      "risk_id": "R-02",
+      "title": "Duplicate payments",
+      "description": "Suppliers were paid twice, a clear breach costing £2.3m.",
+      "likelihood": {
+        "score": 5,
+        "rubric_row": "L4",
+        "signals": [
+          "$.tests.duplicates.per_tier.different_time.headline_general_procurement.groups"
+        ],
+        "repeat_finding": {
+          "audit": "AUD-01"
+        },
+        "justification": "Duplicates are common in councils of this size and 35 groups were seen."
+      },
+      "impact": {
+        "score": 2,
+        "category": "Financial loss to Council",
+        "justification": "Loss of {{$.tests.duplicates.per_tier.same_day.gbp}} would be medium [history:IMP-06] [history:IMP-99]."
+      },
+      "evidence": [
+        "No rule cited."
+      ],
+      "proposed_focus": "Review duplicates."
+    }
+  ]
+}

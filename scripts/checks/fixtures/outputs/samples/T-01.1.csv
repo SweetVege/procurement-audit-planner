@@ -1,0 +1,6 @@
+test_id,risk_id,item_no,item_window_start,item_window_end,item_total_gbp,row_id,source_file,sheet_row,pay_date,Net amount,Supplier name,Service,Expenditure category,Narrative,tag
+T-01.1,R-01,1,2026-05-04,2026-05-20,36500.0,P02.xlsx:3,P02.xlsx,3,2026-05-04,14000.0,Alpha Works,Environment,Supplies & Services,Minor Works,general_procurement
+T-01.1,R-01,1,2026-05-04,2026-05-20,36500.0,P02.xlsx:4,P02.xlsx,4,2026-05-11,13500.0,Alpha Works,Environment,Supplies & Services,Minor Works,general_procurement
+T-01.1,R-01,1,2026-05-04,2026-05-20,36500.0,P02.xlsx:5,P02.xlsx,5,2026-05-20,9000.0,Alpha Works,Environment,Supplies & Services,Minor Works,general_procurement
+T-01.1,R-01,2,2026-05-05,2026-05-19,28000.0,P02.xlsx:6,P02.xlsx,6,2026-05-05,20000.0,Bravo Build,Environment,Supplies & Services,Minor Works,general_procurement
+T-01.1,R-01,2,2026-05-05,2026-05-19,28000.0,P02.xlsx:7,P02.xlsx,7,2026-05-19,8000.0,Bravo Build,Environment,Supplies & Services,Minor Works,general_procurement

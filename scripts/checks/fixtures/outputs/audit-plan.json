@@ -1,0 +1,136 @@
+{
+  "memo": {
+    "objective": "To assess whether purchasing followed the value bands in the Rules [rule:CPR-01], for the {{pack.risks_in_scope}} risks the auditor placed in scope.",
+    "scope": "The analysis covered {{$.population.rows_after_exclusions}} payments over {{$.population.months_covered}} months. Split-purchase windows in general procurement total {{$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.gbp}}.",
+    "approach": "Each flagged item is traced to the council's own records before any conclusion is drawn.",
+    "limitations": "Flags are indicators only; payments below the publication floor are not visible."
+  },
+  "risks": [
+    {
+      "risk_id": "R-01",
+      "controls": [
+        {
+          "control_id": "C-01.1",
+          "control": "Related purchases are aggregated before the value band is chosen.",
+          "rules": [
+            "CPR-02"
+          ]
+        },
+        {
+          "control_id": "C-01.2",
+          "control": "Three quotes are sought at or above the publication value.",
+          "rules": [
+            "CPR-05"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "test_id": "T-01.1",
+          "controls": [
+            "C-01.1",
+            "C-01.2"
+          ],
+          "step": "For each sampled window, obtain the orders and quotation record and confirm how the value band was decided [rule:CPR-02] [metric:$.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.windows].",
+          "sample": {
+            "file": "split-purchases.csv",
+            "filter": [
+              {
+                "column": "tag",
+                "op": "==",
+                "value": "general_procurement"
+              }
+            ],
+            "sort": [
+              {
+                "column": "total_gbp",
+                "order": "desc"
+              }
+            ],
+            "size": "by_score",
+            "keep": [
+              "window_start",
+              "window_end",
+              "total_gbp"
+            ]
+          },
+          "no_sample_reason": null,
+          "pbc": [
+            "P-01",
+            "P-02"
+          ]
+        }
+      ]
+    },
+    {
+      "risk_id": "R-02",
+      "controls": [
+        {
+          "control_id": "C-02.1",
+          "control": "A register of contracts is kept.",
+          "rules": [
+            "CPR-04"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "test_id": "T-02.1",
+          "controls": [
+            "C-02.1"
+          ],
+          "step": "For each sampled group, obtain the invoices and confirm each payment was separately due [rule:CPR-04] [metric:$.tests.duplicates.per_tier.different_time.headline_general_procurement.groups].",
+          "sample": {
+            "file": "duplicate-groups.csv",
+            "filter": [
+              {
+                "column": "tag",
+                "op": "==",
+                "value": "general_procurement"
+              }
+            ],
+            "sort": [
+              {
+                "column": "amount",
+                "order": "desc"
+              },
+              {
+                "column": "group_id",
+                "order": "asc"
+              }
+            ],
+            "size": "all",
+            "keep": [
+              "group_id",
+              "amount"
+            ]
+          },
+          "no_sample_reason": null,
+          "pbc": [
+            "P-02"
+          ]
+        }
+      ]
+    }
+  ],
+  "pbc": [
+    {
+      "pbc_id": "P-01",
+      "request": "Quotation records and purchase orders for the suppliers and dates in the sample."
+    },
+    {
+      "pbc_id": "P-02",
+      "request": "Invoices for every sampled transaction."
+    }
+  ],
+  "rules_not_tested": [
+    {
+      "rule_ids": [
+        "CPR-01",
+        "CPR-03",
+        "CPR-06"
+      ],
+      "reason": "Single-quote purchases, Key Decisions and full tenders are outside the approved risks."
+    }
+  ]
+}

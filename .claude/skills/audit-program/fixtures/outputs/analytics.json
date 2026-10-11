@@ -1,0 +1,44 @@
+{
+  "population": {
+    "months_covered": 3,
+    "rows_after_exclusions": 8534
+  },
+  "threshold_source": {
+    "publication_threshold": {
+      "value": 25000.0
+    }
+  },
+  "tests": {
+    "split_purchases": {
+      "parameters": {
+        "window_days": 30
+      },
+      "per_threshold": {
+        "25000.00": {
+          "headline_general_procurement": {
+            "windows": 41,
+            "gbp": 2310961.19
+          }
+        }
+      }
+    },
+    "duplicates": {
+      "per_tier": {
+        "different_time": {
+          "headline_general_procurement": {
+            "groups": 35,
+            "gbp_beyond_first": 299374.24
+          }
+        }
+      }
+    },
+    "threshold_clustering": {
+      "per_threshold": {
+        "25000.00": {
+          "band_count": 0,
+          "band_to_comparator_ratio": 0.8846
+        }
+      }
+    }
+  }
+}

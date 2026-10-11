@@ -1,0 +1,106 @@
+{
+  "register": "Revision 1",
+  "method": {
+    "size_by_score": [
+      {
+        "score_at_least": 15,
+        "items": 25
+      },
+      {
+        "score_at_least": 8,
+        "items": 15
+      },
+      {
+        "score_at_least": 4,
+        "items": 10
+      },
+      {
+        "score_at_least": 1,
+        "items": 5
+      }
+    ],
+    "census_limit": 50
+  },
+  "pack": {
+    "risks_in_register": 2,
+    "risks_in_scope": 2,
+    "risks_rejected": 0,
+    "controls": 3,
+    "tests": 2,
+    "tests_with_sample": 2,
+    "sample_items": 4,
+    "sample_transactions": 10,
+    "sample_gbp": 71581.5,
+    "pbc_items": 2,
+    "rules_total": 6,
+    "rules_cited": 3,
+    "rules_not_tested": 3
+  },
+  "scope": {
+    "in_scope": [
+      "R-01",
+      "R-02"
+    ],
+    "rejected": [],
+    "ratings": {
+      "R-01": {
+        "likelihood": 3,
+        "impact": 3,
+        "score": 9,
+        "matrix_label": "High",
+        "band": "Medium - High"
+      },
+      "R-02": {
+        "likelihood": 3,
+        "impact": 2,
+        "score": 6,
+        "matrix_label": "Moderate",
+        "band": "Moderate"
+      }
+    }
+  },
+  "samples": {
+    "T-01.1": {
+      "file": "split-purchases.csv",
+      "population": 2,
+      "items": 2,
+      "transactions": 5,
+      "gbp": 64500.0,
+      "csv": "samples/T-01.1.csv"
+    },
+    "T-02.1": {
+      "file": "duplicate-groups.csv",
+      "population": 2,
+      "items": 2,
+      "transactions": 5,
+      "gbp": 7081.5,
+      "csv": "samples/T-02.1.csv"
+    }
+  },
+  "filled": [
+    {
+      "where": "memo objective",
+      "source": "computed: pack.risks_in_scope",
+      "value": 2,
+      "shown_as": "2"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.population.rows_after_exclusions",
+      "value": 8534,
+      "shown_as": "8,534"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.population.months_covered",
+      "value": 3,
+      "shown_as": "3"
+    },
+    {
+      "where": "memo scope",
+      "source": "analytics.json $.tests.split_purchases.per_threshold['25000.00'].headline_general_procurement.gbp",
+      "value": 2310961.19,
+      "shown_as": "£2,310,961.19"
+    }
+  ]
+}

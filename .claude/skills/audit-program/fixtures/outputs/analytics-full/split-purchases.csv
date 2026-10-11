@@ -1,0 +1,5 @@
+threshold,supplier,supplier_norm,window_start,window_end,n_payments,distinct_amounts,total_gbp,largest_payment,tag,tags_in_window,services,row_ids
+1000.0,Echo Services,ECHO SERVICES,2026-05-13,2026-05-15,3,1,2281.5,760.5,general_procurement,general_procurement,Environment,P02.xlsx:11;P02.xlsx:12;P02.xlsx:13
+25000.0,Alpha Works,ALPHA WORKS,2026-05-04,2026-05-20,3,3,36500.0,14000.0,general_procurement,general_procurement,Environment,P02.xlsx:2;P02.xlsx:3;P02.xlsx:4
+25000.0,Bravo Build,BRAVO BUILD,2026-05-05,2026-05-19,2,2,28000.0,20000.0,general_procurement,general_procurement,Environment,P02.xlsx:5;P02.xlsx:6
+25000.0,Charlie Civils,CHARLIE CIVILS,2026-05-06,2026-05-07,2,2,25100.0,12600.0,care_or_education_placement,care_or_education_placement,Environment,P02.xlsx:7;P02.xlsx:8
