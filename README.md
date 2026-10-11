@@ -341,20 +341,26 @@ The repository's `Dockerfile` is the whole deployment. On any container host:
 
 ### What has been tested
 
-Run locally through the web application on 2026-10-11, starting a new run at
-the team stage:
+**On the deployed application**, 2026-10-11, a run started at the register
+stage and taken through both human gates to sign-off (about 17 minutes of
+agent time, $6.46):
 
-| Part | Result |
+| Stage | Result |
 | --- | --- |
-| Agent team (planner ⇄ challenger ⇄ qa-reviewer over the message bus) | 11 minutes, about $5.80. Three pack versions, 8 challenges over two rounds (7 resolved, 1 left for the auditor), `QA DONE v3: READY FOR SIGN-OFF`. |
+| Draft the risk register (risk-assessor) | 10 risks rated; 4 minutes, $1.09 |
+| Gate 1 (decision form → `auditor-comments.md` → risk-assessor revision) | 8 approved, 1 override (R-10 likelihood 2 → 3), 1 rejected (R-08). Register rebuilt as Revision 1; harness gate check: `GATE CLOSED`, 9 risks in scope |
+| Agent team (planner ⇄ challenger ⇄ qa-reviewer over the message bus) | 12 minutes, $5.17. Three pack versions, 10 challenges over two rounds, `QA DONE v3: READY FOR SIGN-OFF` |
 | Harness's own re-run of `run_checks.py` after the team | `ALL 4 CHECKS PASS` |
-| Sign-off gate (form → `review.md`) | Sign-off block written; run marked complete. |
-| Decision form → `auditor-comments.md` | Checked on a copy of the file: a round trip leaves it byte-identical; an undecided risk, an unknown decision, or a non-approve decision without a comment is refused. |
-| Stop button, API rate-limit retry | A running stage stops cleanly; a rate-limited turn is resumed. |
+| Gate 2 (sign-off form → `review.md`) | Pack approved; run complete |
 
-Not yet exercised through the harness: the first four stages run by agents
-(rules, evidence, register, and the risk-assessor's revision after gate 1).
-They use the same session runner as the team, with simpler orchestration.
+Also checked: a round trip through the decision form leaves
+`auditor-comments.md` byte-identical; an undecided risk, an unknown decision, or
+a non-approve decision without a comment is refused; a running stage stops
+cleanly; a rate-limited turn is resumed; runs survive a redeploy on the volume.
+
+Not yet exercised through the harness: the first two stages (extracting the
+rules and the two evidence sub-agents). They use the same session runner as the
+stages above; a run that starts at "From the PDF" would cover them.
 
 ### Limits, stated plainly
 
