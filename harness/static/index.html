@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Procurement Audit Planner</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+<style>
+:root {
+  --bg: #f6f5f1; --panel: #ffffff; --ink: #1d2327; --muted: #667078; --line: #dedbd2;
+  --accent: #0f6b5c; --accent-ink: #ffffff; --soft: #eaf3f0;
+  --ok: #1f7a4d; --bad: #b3372c; --run: #b06d00; --code: #f1efe9;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14181a; --panel: #1c2225; --ink: #e6e8e6; --muted: #98a2a6; --line: #2f383c;
+    --accent: #4fc3ad; --accent-ink: #0c1a17; --soft: #1e2f2b;
+    --ok: #5fcf93; --bad: #f0837a; --run: #e8b04f; --code: #232a2e;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+button, select, input, textarea { font: inherit; color: inherit; }
+header { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 14px 20px;
+  background: var(--panel); border-bottom: 1px solid var(--line); }
+header h1 { font-size: 17px; margin: 0; letter-spacing: -0.01em; }
+header .sub { color: var(--muted); font-size: 13px; }
+header .grow { flex: 1; }
+select, input[type=text], input[type=password], textarea { background: var(--bg);
+  border: 1px solid var(--line); border-radius: 6px; padding: 6px 9px; }
+textarea { width: 100%; min-height: 70px; resize: vertical; }
+.btn { border: 1px solid var(--line); background: var(--panel); border-radius: 6px;
+  padding: 6px 13px; cursor: pointer; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink);
+  font-weight: 600; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.notice { padding: 8px 20px; font-size: 13px; color: var(--muted); background: var(--soft);
+  border-bottom: 1px solid var(--line); }
+main { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 18px; padding: 18px 20px;
+  max-width: 1500px; margin: 0 auto; }
+@media (max-width: 860px) { main { grid-template-columns: 1fr; padding: 14px 16px; } }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
+.steps { padding: 6px; align-self: start; }
+.step { display: grid; grid-template-columns: 26px 1fr; gap: 10px; padding: 10px;
+  border-radius: 8px; cursor: pointer; border: 0; background: none; width: 100%; text-align: left; }
+.step:hover { background: var(--bg); }
+.step.sel { background: var(--soft); }
+.dot { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--line);
+  display: grid; place-items: center; font-size: 12px; font-weight: 700; color: var(--muted); }
+.step.done .dot { background: var(--ok); border-color: var(--ok); color: var(--panel); }
+.step.failed .dot { background: var(--bad); border-color: var(--bad); color: var(--panel); }
+.step.running .dot { border-color: var(--run); color: var(--run); animation: pulse 1.2s infinite; }
+@keyframes pulse { 50% { opacity: .35; } }
+.step .t { font-weight: 600; font-size: 14px; }
+.step .a { color: var(--muted); font-size: 12px; }
+.col { display: grid; gap: 18px; min-width: 0; }
+.stage { padding: 18px 20px; }
+.stage h2 { margin: 0 0 2px; font-size: 19px; letter-spacing: -0.01em; }
+.meta { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.pill { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.pill.done { color: var(--ok); } .pill.failed { color: var(--bad); } .pill.running { color: var(--run); }
+.about { margin: 12px 0; max-width: 78ch; }
+.note { border-left: 3px solid var(--bad); padding: 6px 12px; margin: 12px 0; background: var(--bg);
+  font-size: 14px; overflow-wrap: anywhere; }
+.note.info { border-color: var(--accent); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; padding: 10px 14px 0; border-bottom: 1px solid var(--line); }
+.tab { border: 0; background: none; padding: 6px 10px; border-radius: 6px 6px 0 0; cursor: pointer;
+  font-size: 13px; color: var(--muted); font-family: var(--mono); }
+.tab.sel { color: var(--ink); background: var(--soft); font-weight: 600; }
+.viewer { padding: 16px 20px; overflow-x: auto; }
+.viewer table, .form table { border-collapse: collapse; font-size: 13px; }
+.viewer th, .viewer td, .form th, .form td { border: 1px solid var(--line); padding: 5px 8px;
+  text-align: left; vertical-align: top; }
+.viewer th, .form th { background: var(--bg); }
+.viewer pre, .viewer code { background: var(--code); border-radius: 4px; font-family: var(--mono);
+  font-size: 12.5px; }
+.viewer pre { padding: 12px; overflow-x: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+.viewer code { padding: 1px 4px; } .viewer pre code { padding: 0; }
+.viewer blockquote { margin: 10px 0; padding: 4px 14px; border-left: 3px solid var(--accent);
+  background: var(--soft); }
+.viewer h1 { font-size: 22px; } .viewer h2 { font-size: 18px; margin-top: 26px; }
+.viewer h3 { font-size: 15px; }
+.form { overflow-x: auto; margin-top: 8px; }
+.form td input[type=text] { width: 100%; min-width: 220px; }
+.form label { display: block; margin: 10px 0 4px; font-weight: 600; font-size: 13px; }
+.log { padding: 0; }
+.log .bar { display: flex; gap: 14px; align-items: center; padding: 10px 16px;
+  border-bottom: 1px solid var(--line); font-size: 13px; }
+.log .bar b { font-size: 14px; }
+#events { max-height: 460px; overflow-y: auto; padding: 8px 16px 14px; font-size: 13px; }
+.ev { display: grid; grid-template-columns: 62px 128px minmax(0, 1fr); gap: 10px; padding: 3px 0;
+  border-bottom: 1px dashed var(--line); }
+.ev .time { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+.ev .who { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ev .body { white-space: pre-wrap; overflow-wrap: anywhere; }
+.ev.tool .body { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.ev.message .body { background: var(--soft); border-radius: 6px; padding: 4px 8px; }
+.ev.error .body, .ev.tool_error .body { color: var(--bad); }
+.ev.status .body, .ev.check .body, .ev.decision .body { font-weight: 600; }
+.ev .body.clip { max-height: 7.5em; overflow: hidden; cursor: pointer;
+  mask-image: linear-gradient(#000 70%, transparent); }
+.ev.tool .body.clip { white-space: nowrap; text-overflow: ellipsis; max-height: none; mask-image: none; }
+.empty { color: var(--muted); padding: 14px 0; }
+dialog { border: 1px solid var(--line); border-radius: 12px; background: var(--panel);
+  color: var(--ink); max-width: 560px; width: calc(100% - 32px); padding: 20px; }
+dialog::backdrop { background: rgba(0, 0, 0, .45); }
+dialog h3 { margin: 0 0 6px; }
+.opt { display: grid; grid-template-columns: 20px 1fr; gap: 8px; padding: 9px; border-radius: 8px;
+  border: 1px solid var(--line); margin-top: 8px; cursor: pointer; }
+.opt small { color: var(--muted); display: block; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Procurement Audit Planner</h1>
+    <div class="sub">An agent harness: skills, sub-agents, two human gates and an agent team</div>
+  </div>
+  <div class="grow"></div>
+  <label class="sub">Run <select id="runs"></select></label>
+  <input id="password" type="password" placeholder="Password to run" autocomplete="off" hidden>
+  <button id="new" class="btn primary">New run</button>
+</header>
+<div class="notice">Public data, real council. Everything here is a <b>risk indicator to
+  investigate</b>, never a finding of wrongdoing by the council, a service, an officer or a supplier.</div>
+<main>
+  <nav class="card steps" id="steps"></nav>
+  <div class="col">
+    <section class="card stage" id="stage"></section>
+    <section class="card" id="docs" hidden>
+      <div class="tabs" id="tabs"></div>
+      <div class="viewer" id="viewer"></div>
+    </section>
+    <section class="card log">
+      <div class="bar"><b>Activity</b>
+        <label><input type="checkbox" id="only"> this stage only</label>
+        <span class="sub" id="spend"></span></div>
+      <div id="events"></div>
+    </section>
+  </div>
+</main>
+
+<dialog id="dlg">
+  <h3>Start a new run</h3>
+  <div class="sub">A run is a private copy of the project. Choose the first stage it will execute;
+    the outputs of earlier stages are copied from the reference run. Each stage you start spends
+    API tokens.</div>
+  <div id="opts"></div>
+  <div class="actions"><button class="btn primary" id="create">Create run</button>
+    <button class="btn" id="cancel">Cancel</button><span class="sub" id="dlgerr"></span></div>
+</dialog>
+
+<script>
+const $ = id => document.getElementById(id);
+const h = (tag, attrs = {}, ...kids) => {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === 'class') el.className = v;
+    else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else if (v !== false && v != null) el.setAttribute(k, v === true ? '' : v);
+  }
+  for (const kid of kids.flat()) if (kid != null) el.append(kid);
+  return el;
+};
+const START_OPTIONS = [
+  ['team', 'Agent team, then sign-off', 'Rules, evidence and the approved register are copied. Shortest way to watch the three agents message each other.'],
+  ['register', 'Risk register, your decisions, then the team', 'Rules and evidence are copied. Includes the first human gate.'],
+  ['evidence', 'Spend and history analysis onward', 'Only the extracted rules are copied.'],
+  ['rules', 'From the PDF, nothing copied', 'The whole pipeline. Longest and most expensive.'],
+];
+const state = { cfg: null, run: null, stage: null, file: null, events: [], source: null, form: null };
+
+async function api(path, options = {}) {
+  const headers = { 'Content-Type': 'application/json', 'X-Harness-Password': $('password').value };
+  const res = await fetch('/api' + path, { ...options, headers });
+  if (!res.ok) throw new Error((await res.json().catch(() => ({}))).detail || res.statusText);
+  return res.json();
+}
+const fmtTime = t => new Date(t * 1000).toLocaleTimeString([], { hour12: false });
+const fmtRun = r => r.readonly ? 'Reference run (complete, read-only)'
+  : new Date(r.created * 1000).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }) + ' · from ' + r.start_at;
+
+async function loadRuns(select) {
+  const runs = await api('/runs');
+  $('runs').replaceChildren(...runs.map(r => h('option', { value: r.id }, fmtRun(r))));
+  $('runs').value = select || (state.run && state.run.id) || runs[0].id;
+  await openRun($('runs').value);
+}
+
+async function openRun(id) {
+  state.events = []; state.form = null; $('events').replaceChildren();
+  await refresh(id);
+  const firstOpen = state.run.stages.find(s => s.status !== 'done');
+  state.stage = (firstOpen || state.run.stages[4]).id;
+  state.file = null;
+  render();
+  if (state.source) state.source.close();
+  state.source = new EventSource(`/api/runs/${id}/events`);
+  state.source.onmessage = msg => onEvent(JSON.parse(msg.data));
+  if (state.run.readonly) $('events').replaceChildren(h('div', { class: 'empty' },
+    'The reference run was produced in Claude Code, so it has no activity log. Start a new run to watch agents work.'));
+}
+
+async function refresh(id) { state.run = await api('/runs/' + (id || state.run.id)); }
+
+function onEvent(ev) {
+  if (state.events.some(e => e.n === ev.n)) return;
+  state.events.push(ev);
+  appendEvent(ev);
+  if (ev.kind === 'status' || ev.kind === 'check') refresh().then(() => {
+    if (ev.kind === 'status' && ev.text !== 'running') { state.form = null; state.file = null; }
+    render();
+  });
+}
+
+function appendEvent(ev) {
+  const box = $('events');
+  if (box.firstChild && box.firstChild.className === 'empty') box.replaceChildren();
+  const stick = box.scrollTop + box.clientHeight >= box.scrollHeight - 30;
+  const who = ev.kind === 'message' ? `${ev.agent} → ${ev.to}` : ev.agent;
+  const text = ev.kind === 'tool' ? `${ev.tool}  ${ev.text}`
+    : ev.kind === 'status' ? `Stage ${ev.stage}: ${ev.text}${ev.note ? ' — ' + ev.note : ''}` : ev.text;
+  const long = ev.kind === 'tool' ? text.length > 110 || text.includes('\n') : text.length > 500;
+  const body = h('div', { class: 'body' + (long ? ' clip' : ''), title: long ? 'Click to expand' : null }, text);
+  body.addEventListener('click', () => body.classList.remove('clip'));
+  const row = h('div', { class: 'ev ' + ev.kind, 'data-stage': ev.stage },
+    h('div', { class: 'time' }, fmtTime(ev.t)), h('div', { class: 'who', title: who }, who), body);
+  row.hidden = $('only').checked && ev.stage !== state.stage;
+  box.append(row);
+  while (box.children.length > 800) box.firstChild.remove();
+  if (stick) box.scrollTop = box.scrollHeight;
+}
+
+function render() {
+  const run = state.run;
+  $('password').hidden = state.cfg.auth !== 'password';
+  $('new').disabled = state.cfg.auth === 'disabled';
+  $('spend').textContent = run.readonly ? '' : `Model ${state.cfg.model} · this run $${run.cost_usd.toFixed(2)}`;
+  $('steps').replaceChildren(...run.stages.map((s, i) => h('button',
+    { class: `step ${s.status} ${s.id === state.stage ? 'sel' : ''}`, onclick: () => { state.stage = s.id; state.file = null; state.form = null; render(); } },
+    h('div', { class: 'dot' }, s.status === 'done' ? '✓' : s.status === 'failed' ? '!' : String(i + 1)),
+    h('div', {}, h('div', { class: 't' }, s.title), h('div', { class: 'a' }, s.actor)))));
+  for (const row of $('events').children) if (row.dataset.stage) row.hidden = $('only').checked && row.dataset.stage !== state.stage;
+  renderStage(run.stages.find(s => s.id === state.stage));
+}
+
+function renderStage(s) {
+  const run = state.run;
+  const took = s.started && s.ended ? `${Math.round((s.ended - s.started) / 60)} min` : '';
+  const kids = [
+    h('h2', {}, s.title),
+    h('div', { class: 'meta' }, h('span', { class: 'pill ' + s.status }, s.status),
+      h('span', {}, s.kind === 'human' ? 'Human gate' : 'Run by: ' + s.actor),
+      took && h('span', {}, took), s.cost_usd ? h('span', {}, `$${s.cost_usd.toFixed(2)}`) : null),
+    h('p', { class: 'about' }, s.about),
+    s.note ? h('div', { class: 'note' + (s.status === 'done' ? ' info' : '') }, s.note) : null,
+  ];
+  if (!run.readonly) {
+    if (s.status === 'running') kids.push(h('div', { class: 'actions' },
+      h('button', { class: 'btn', onclick: () => act(api(`/runs/${run.id}/stop`, { method: 'POST' })) }, 'Stop'),
+      h('span', { class: 'sub' }, 'Agents are working. Watch the activity log below.')));
+    else if (s.blocked_by) kids.push(h('div', { class: 'sub' }, s.blocked_by));
+    else if (run.server_busy) kids.push(h('div', { class: 'sub' }, 'Another stage is running on this server. One stage runs at a time.'));
+    else if (s.id === 'gate1') kids.push(decisionForm(s));
+    else if (s.id === 'signoff') kids.push(signoffForm(s));
+    else kids.push(h('div', { class: 'actions' }, h('button', { class: 'btn primary', onclick: () => start(s.id, {}) },
+      s.status === 'pending' ? 'Run this stage' : 'Run again'),
+      s.status !== 'pending' ? h('span', { class: 'sub' }, 'Running again discards this stage’s outputs and every later stage.') : null));
+  }
+  $('stage').replaceChildren(...kids.filter(Boolean));
+  renderDocs(s);
+}
+
+function act(promise) { promise.then(() => refresh()).then(render).catch(err => alert(err.message)); }
+function start(stage, body) {
+  act(api(`/runs/${state.run.id}/stages/${stage}`, { method: 'POST', body: JSON.stringify(body) }));
+}
+
+function decisionForm(s) {
+  const box = h('div', { class: 'form' }, h('div', { class: 'sub' }, 'Loading the register’s risks…'));
+  const build = data => {
+    state.form = state.form || data;
+    const rows = state.form.risks.map(r => h('tr', {},
+      h('td', {}, h('b', {}, r.id)), h('td', {}, r.title), h('td', {}, r.rating),
+      h('td', {}, h('select', { onchange: e => r.decision = e.target.value },
+        h('option', { value: '' }, '—'),
+        state.cfg.decisions.map(d => h('option', { value: d, selected: r.decision === d }, d)))),
+      h('td', {}, h('input', { type: 'text', value: r.comment, placeholder: 'Required unless approving',
+        oninput: e => r.comment = e.target.value }))));
+    box.replaceChildren(
+      h('table', {}, h('tr', {}, ['Risk', 'Title', 'Rating', 'Decision', 'Comment'].map(c => h('th', {}, c))), rows),
+      h('label', {}, 'General comments'),
+      h('textarea', { oninput: e => state.form.general = e.target.value }, state.form.general),
+      h('div', { class: 'actions' }, h('button', { class: 'btn primary', onclick: () => start('gate1', {
+        decisions: state.form.risks.map(r => ({ id: r.id, decision: r.decision, comment: r.comment })),
+        general: state.form.general }) }, 'Record decisions and revise the register'),
+        h('span', { class: 'sub' }, 'approve = in scope as rated · revise = change as the comment says · override = set a score yourself · reject = out of scope')));
+  };
+  if (state.form) build(state.form); else api(`/runs/${state.run.id}/decisions`).then(build);
+  return box;
+}
+
+function signoffForm(s) {
+  const form = state.form = state.form || { decision: state.cfg.signoff_decisions[0], auditor: '', comments: '' };
+  return h('div', { class: 'form' },
+    h('div', { class: 'sub' }, 'Read review.md below first: the QA verdict and the challenges left for you.'),
+    h('label', {}, 'Decision'),
+    h('select', { onchange: e => form.decision = e.target.value },
+      state.cfg.signoff_decisions.map(d => h('option', { value: d, selected: form.decision === d }, d))),
+    h('label', {}, 'Auditor'),
+    h('input', { type: 'text', value: form.auditor, oninput: e => form.auditor = e.target.value }),
+    h('label', {}, 'Comments, including your decision on each challenge'),
+    h('textarea', { oninput: e => form.comments = e.target.value }, form.comments),
+    h('div', { class: 'actions' }, h('button', { class: 'btn primary', onclick: () => start('signoff', form) }, 'Sign')));
+}
+
+async function renderDocs(s) {
+  $('docs').hidden = !s.files.length;
+  if (!s.files.length) return;
+  if (!s.files.includes(state.file)) state.file = s.files[0];
+  $('tabs').replaceChildren(...s.files.map(f => h('button',
+    { class: 'tab' + (f === state.file ? ' sel' : ''), onclick: () => { state.file = f; renderDocs(s); } }, f)));
+  const want = state.run.id + '/' + state.file;
+  const res = await fetch(`/api/runs/${state.run.id}/file?path=${encodeURIComponent(state.file)}`);
+  const text = await res.text();
+  if (want !== state.run.id + '/' + state.file) return;
+  const view = $('viewer');
+  const cut = res.headers.get('X-Truncated') === '1'
+    ? h('div', { class: 'note info' }, 'This file is long; only its first part is shown.') : null;
+  if (!res.ok) view.replaceChildren(h('div', { class: 'empty' }, 'Not available.'));
+  else if (state.file.endsWith('.md')) {
+    view.innerHTML = DOMPurify.sanitize(marked.parse(text));
+    if (cut) view.prepend(cut);
+  } else if (state.file.endsWith('.csv')) view.replaceChildren(cut || '', csvTable(text));
+  else if (state.file === 'rules.json' && !cut) view.replaceChildren(rulesTable(JSON.parse(text)));
+  else view.replaceChildren(cut || '', h('pre', {}, text));
+}
+
+function csvTable(text) {
+  const rows = []; let row = [], cell = '', quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (quoted) { if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; } else if (c === '"') quoted = false; else cell += c; }
+    else if (c === '"') quoted = true;
+    else if (c === ',') { row.push(cell); cell = ''; }
+    else if (c === '\n') { row.push(cell); rows.push(row); row = []; cell = ''; }
+    else if (c !== '\r') cell += c;
+  }
+  if (cell || row.length) { row.push(cell); rows.push(row); }
+  return h('table', {}, rows.map((r, i) => h('tr', {}, r.map(c => h(i ? 'td' : 'th', {}, c)))));
+}
+
+function rulesTable(doc) {
+  const cols = ['rule_id', 'clause', 'condition', 'required_action', 'approver', 'verbatim_quote'];
+  return h('div', {}, h('p', { class: 'sub' }, `${doc.rules.length} testable rules · ${(doc.excluded || []).length} clauses excluded with a reason`),
+    h('table', {}, h('tr', {}, cols.map(c => h('th', {}, c))),
+      doc.rules.map(r => h('tr', {}, cols.map(c => h('td', {}, r[c] == null ? '' : String(r[c])))))));
+}
+
+$('runs').addEventListener('change', e => openRun(e.target.value));
+$('only').addEventListener('change', render);
+$('new').addEventListener('click', () => {
+  $('opts').replaceChildren(...START_OPTIONS.map(([id, title, sub], i) => h('label', { class: 'opt' },
+    h('input', { type: 'radio', name: 'start', value: id, checked: i === 0 }), h('span', {}, title, h('small', {}, sub)))));
+  $('dlgerr').textContent = ''; $('dlg').showModal();
+});
+$('cancel').addEventListener('click', () => $('dlg').close());
+$('create').addEventListener('click', async () => {
+  try {
+    const start_at = document.querySelector('input[name=start]:checked').value;
+    const run = await api('/runs', { method: 'POST', body: JSON.stringify({ start_at }) });
+    $('dlg').close(); await loadRuns(run.id);
+  } catch (err) { $('dlgerr').textContent = err.message; }
+});
+setInterval(() => { if (state.run && !state.run.readonly) refresh().then(() => { if (!state.form) render(); }); }, 15000);
+(async () => { state.cfg = await api('/config'); await loadRuns('reference'); })();
+</script>
+</body>
+</html>

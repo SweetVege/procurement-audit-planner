@@ -6,9 +6,15 @@ It turns the council's Contract Rules into testable rules, analyses every
 published payment against them, folds in past audit history, rates the risks for
 a human auditor to approve, and produces a cross-checked audit planning pack.
 
-This repository is **Part A** of the assignment *Skills, Agents & Deployment*:
-a rebuild of the reference application at
-<https://procurement-audit-planner.vercel.app/> following its step-by-step guide.
+This repository holds both parts of the assignment *Skills, Agents & Deployment*:
+
+- **Part A** – a rebuild of the reference application at
+  <https://procurement-audit-planner.vercel.app/> with Claude Code Skills and
+  Agents, following its step-by-step guide.
+- **Part B** – the same system as an independently deployed
+  [agent harness](#part-b-the-independent-harness): a web application in
+  `harness/` that runs the skills and agents itself, with no Claude Code
+  session and no local machine involved.
 
 > **Indicators, not accusations.** All data here is public, but it is real.
 > Everything under `outputs/` describes *risk indicators to investigate*. Nothing
@@ -23,6 +29,7 @@ a rebuild of the reference application at
 - [Result of the run in this repository](#result-of-the-run-in-this-repository)
 - [Confirmation of the guide's steps](#confirmation-of-the-guides-steps)
 - [Running it yourself](#running-it-yourself)
+- [Part B: the independent harness](#part-b-the-independent-harness)
 - [Repository layout](#repository-layout)
 
 ## The Skills
@@ -252,6 +259,115 @@ order:
 5. Ask Claude Code to run the agent team.
 6. Complete the sign-off block in `outputs/review.md`.
 
+## Part B: the independent harness
+
+**Deployed application:** _URL to be added after deployment_
+
+In Part A, Claude Code is the harness: its chat session launches the
+sub-agents, relays the auditor's decisions and leads the agent team. Part B
+replaces that session with a program. `harness/` is a small web application,
+built on the [Claude Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview),
+that runs the same skills and agents from the same files and puts the two human
+gates in a browser.
+
+Nothing in `.claude/skills/`, `.claude/agents/` or `scripts/` was changed for
+it. The harness reads those files as they are.
+
+### What a visitor can do
+
+- Open the **reference run**: the complete pack from Part A, read-only.
+- Start a **new run** at any of four points (the outputs of earlier stages are
+  copied from the reference run, so the agent team can be watched without first
+  paying for the whole pipeline), then run each stage with one button.
+- Watch the **activity log** stream live: every agent's commentary, every
+  command it runs, and every message the teammates send each other.
+- Act as the auditor: decide each risk in a form (gate 1), and sign the pack
+  off or return it to the team (gate 2).
+
+### How the harness replaces Claude Code
+
+| In Claude Code (Part A) | In the harness (Part B) |
+| --- | --- |
+| The project folder | A **run folder**: a private copy of the brief, skills, agents, scripts and data. Each agent session uses it as its working directory, so `outputs/` stays the interface between stages. |
+| `CLAUDE.md` and `.claude/skills/` loaded by Claude Code | Loaded by the SDK with `setting_sources=["project"]`. The human's `/extract-rules` is sent as the session's prompt. |
+| A sub-agent launched by the chat | Its own SDK session: the body of `.claude/agents/<name>.md` is appended to the system prompt, its `skills:` are loaded first, its memory notes are attached. |
+| The chat deciding what to run next | `pipeline.py`: a fixed list of six stages. A stage can start only when every earlier one is done. |
+| The chat reading an agent's report | After each agent stage the harness **re-runs the project's own verifier** (`verify_quotes.py`, `selfcheck.py`, `verify_history.py`, `build_pack.py --gate`, `run_checks.py`) and trusts that exit code over the agent's word. |
+| The auditor editing `auditor-comments.md` | A form; the harness writes the decisions into the same file, re-runs the risk-assessor, then checks that the scope gate is closed. |
+| Agent teams and the `SendMessage` tool | `team.py`: three sessions that stay open, each given a `send_message` tool by an in-process MCP server. A message goes into the recipient's inbox and becomes its next turn. The harness is the lead: it starts the planner, watches for the three `DONE` lines, and nudges twice before declaring the team stalled. |
+| Permission prompts | None. Sessions run with `permission_mode="dontAsk"` and a fixed tool list, so a tool is either allowed or refused, and nothing waits for a click. |
+
+```mermaid
+flowchart LR
+    B[Browser] -- "run stage / decisions / sign-off" --> S[server.py<br/>FastAPI]
+    S -- "live events (SSE)" --> B
+    S --> P[pipeline.py<br/>six stages, two gates]
+    P --> C[core.py<br/>one Agent SDK session per agent]
+    P --> T[team.py<br/>message bus]
+    T --> C
+    C -- "cwd = run folder" --> R[(runs/&lt;id&gt;/<br/>CLAUDE.md, .claude/, scripts/, data/, outputs/)]
+    P -- "verifier scripts" --> R
+    C -- HTTPS --> A[Claude API]
+```
+
+### Run it locally
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt -r harness/requirements.txt
+export ANTHROPIC_API_KEY=...        # not needed if Claude Code is logged in on this machine
+HARNESS_ALLOW_OPEN=1 .venv/bin/uvicorn harness.server:app --port 8000
+```
+
+Then open <http://localhost:8000>. `pdftotext` (poppler) must be installed.
+
+### Deploy it
+
+The repository's `Dockerfile` is the whole deployment. On any container host:
+
+1. Build from this repository.
+2. Give the service at least **2 GB of memory** (the team stage runs three agent
+   sessions at once).
+3. Mount a volume at `/data` so runs survive a redeploy.
+4. Set the environment variables below and expose the port the host provides.
+
+| Variable | Purpose |
+| --- | --- |
+| `ANTHROPIC_API_KEY` | The key the agent sessions use. Required. |
+| `HARNESS_PASSWORD` | Visitors must enter it before any action that spends tokens. Viewing is always open. With no password set, running is disabled. |
+| `HARNESS_MODEL` | Model for every session. Default `claude-opus-5-5`. |
+| `HARNESS_MAX_BUDGET_USD` | Spend ceiling per agent session. Default 25. |
+| `HARNESS_RUNS_DIR` | Where run folders are kept. The image sets `/data/runs`. |
+
+### What has been tested
+
+Run locally through the web application on 2026-10-11, starting a new run at
+the team stage:
+
+| Part | Result |
+| --- | --- |
+| Agent team (planner ⇄ challenger ⇄ qa-reviewer over the message bus) | 11 minutes, about $5.80. Three pack versions, 8 challenges over two rounds (7 resolved, 1 left for the auditor), `QA DONE v3: READY FOR SIGN-OFF`. |
+| Harness's own re-run of `run_checks.py` after the team | `ALL 4 CHECKS PASS` |
+| Sign-off gate (form → `review.md`) | Sign-off block written; run marked complete. |
+| Decision form → `auditor-comments.md` | Checked on a copy of the file: a round trip leaves it byte-identical; an undecided risk, an unknown decision, or a non-approve decision without a comment is refused. |
+| Stop button, API rate-limit retry | A running stage stops cleanly; a rate-limited turn is resumed. |
+
+Not yet exercised through the harness: the first four stages run by agents
+(rules, evidence, register, and the risk-assessor's revision after gate 1).
+They use the same session runner as the team, with simpler orchestration.
+
+### Limits, stated plainly
+
+- **One stage at a time for the whole server.** A second visitor sees the
+  running stage and waits.
+- **Agents run shell commands inside the container.** The only material they
+  read is this repository's public data, but the container is the sandbox: do
+  not put anything else in it.
+- **A full run from the PDF takes a long time and real money.** That is why the
+  reference run is shown first and a new run can start part-way.
+- **Agent memory is per run.** Lessons an agent writes to
+  `.claude/agent-memory/` stay in that run's folder.
+
 ## Repository layout
 
 ```
@@ -269,6 +385,13 @@ data/                        public inputs, read-only
 scripts/                     Python written by the spend-analyst
   checks/                      the four QA checks and their runner
 outputs/                     one complete run (see above)
+harness/                     Part B: the web application
+  core.py                      run folders, activity log, Agent SDK sessions
+  team.py                      the agent team's message bus
+  pipeline.py                  the six stages and the two human gates
+  server.py                    HTTP API and live event stream
+  static/index.html            the page
+Dockerfile                   the deployed container
 ```
 
 ## Data sources
